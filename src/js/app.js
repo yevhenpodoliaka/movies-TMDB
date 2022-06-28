@@ -30,8 +30,8 @@ async function onFormSubmit(e) {
   e.preventDefault();
   const query = e.target.elements.input.value;
   const data = await search.fetchByWord(query);
-  const markup = await uppendMarkapGalleryList(data);
-  return await uppendMarkap(markup);
+  const markup = await createMarkupList(data);
+  return await uppendMarkapGalleryList(markup);
 }
 
 async function onDecrementBtnClick() {
