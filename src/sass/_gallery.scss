@@ -1,8 +1,4 @@
 @import '~node_modules/modern-normalize/modern-normalize.css';
-
-main{
-    padding: 85px 0;
-}
 .gallery__list{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
