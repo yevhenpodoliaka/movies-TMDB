@@ -1,0 +1,15 @@
+button{
+    border: transparent;
+        border-radius: 50px;
+        padding: 8px;
+        color: blue;
+        cursor: pointer;
+
+        &:hover,
+        &:focus{
+            color: white;
+            background-color: darkblue;
+        }
+    
+}
+
