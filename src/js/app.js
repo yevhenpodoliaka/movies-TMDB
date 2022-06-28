@@ -3,8 +3,8 @@ import refs from './refs';
 import Search from './api-servise';
 
 window.addEventListener('DOMContentLoaded', onHomePage);
-refs.home.addEventListener('click', onClickBtnHome);
-refs.libary.addEventListener('click', onClickBtnLibary);
+refs.homeBtn.addEventListener('click', onClickBtnHome);
+refs.libaryBtn.addEventListener('click', onClickBtnLibary);
 refs.form.addEventListener('submit', onFormSubmit);
 refs.decrementBtn.addEventListener('click', onDecrementBtnClick);
 refs.incrementBtn.addEventListener('click', onIncrementBtnClick);
@@ -22,7 +22,9 @@ function onClickBtnHome() {
   onHomePage();
 }
 
-function onClickBtnLibary() {}
+function onClickBtnLibary() {
+  refs.gallery.innerHTML = '';
+}
 
 async function onFormSubmit(e) {
   e.preventDefault();

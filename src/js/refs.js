@@ -1,7 +1,7 @@
 export default {
   gallery: document.querySelector('.gallery__list'),
-  home: document.querySelector('#home'),
-  libary: document.querySelector('#libary'),
+  homeBtn: document.querySelector('#home'),
+  libaryBtn: document.querySelector('#libary'),
   form: document.querySelector('#form'),
   decrementBtn: document.querySelector('#decrementBtn'),
   incrementBtn: document.querySelector('#incrementBtn'),

@@ -62,7 +62,7 @@
 96C:\Users\Lenovo\Documents\GitHub\movies-TMDB\node_modules\posthtml-parser\dist\chunk.T6SARJYH.js133008863114103537 0
 89C:\Users\Lenovo\Documents\GitHub\movies-TMDB\node_modules\svgo\plugins\removeEmptyText.js133008863178897574 0
 66C:\Users\Lenovo\Documents\GitHub\movies-TMDB\node_modules\css-what133008863154528314 1
-49C:\Users\Lenovo\Documents\GitHub\movies-TMDB\dist133008969821329093 1
+49C:\Users\Lenovo\Documents\GitHub\movies-TMDB\dist133008972901264845 1
 82C:\Users\Lenovo\Documents\GitHub\movies-TMDB\node_modules\node-addon-api\nothing.c133008863111135485 0
 96C:\Users\Lenovo\Documents\GitHub\movies-TMDB\node_modules\css-tree\lib\syntax\node\Identifier.js133008863181709420 0
 96C:\Users\Lenovo\Documents\GitHub\movies-TMDB\node_modules\source-map\lib\source-map-generator.js133008863137969733 0
@@ -217,7 +217,7 @@
 85C:\Users\Lenovo\Documents\GitHub\movies-TMDB\node_modules\immutable\dist\immutable.js133008863139531851 0
 69C:\Users\Lenovo\Documents\GitHub\movies-TMDB\node_modules\glob-parent133008863114415976 1
 70C:\Users\Lenovo\Documents\GitHub\movies-TMDB\src\partials\gallery.html133008967562950319 0
-58C:\Users\Lenovo\Documents\GitHub\movies-TMDB\src\js\app.js133008969819254640 0
+58C:\Users\Lenovo\Documents\GitHub\movies-TMDB\src\js\app.js133008972898552096 0
 89C:\Users\Lenovo\Documents\GitHub\movies-TMDB\node_modules\caniuse-lite\data\regions\HR.js133008863213889335 0
 88C:\Users\Lenovo\Documents\GitHub\movies-TMDB\node_modules\svgo\plugins\removeMetadata.js133008863179678648 0
 78C:\Users\Lenovo\Documents\GitHub\movies-TMDB\node_modules\posthtml-expressions133008863141875069 1
@@ -226,7 +226,7 @@
 77C:\Users\Lenovo\Documents\GitHub\movies-TMDB\node_modules\@parcel\packager-js133008863163588676 1
 85C:\Users\Lenovo\Documents\GitHub\movies-TMDB\node_modules\@babel\code-frame\README.md133008863107855008 0
 134C:\Users\Lenovo\Documents\GitHub\movies-TMDB\node_modules\@parcel\node-resolver-core\test\fixture\node_modules\package-browser\main.js133008863185927154 0
-59C:\Users\Lenovo\Documents\GitHub\movies-TMDB\src\js\refs.js133008955964159889 0
+59C:\Users\Lenovo\Documents\GitHub\movies-TMDB\src\js\refs.js133008972528458845 0
 79C:\Users\Lenovo\Documents\GitHub\movies-TMDB\node_modules\entities\lib\index.js133008863147967369 0
 86C:\Users\Lenovo\Documents\GitHub\movies-TMDB\node_modules\fast-glob\out\utils\errno.js133008863127034781 0
 108C:\Users\Lenovo\Documents\GitHub\movies-TMDB\node_modules\parcel-reporter-clean-dist\test\fixtures\packageV5133008863174211178 1
@@ -563,7 +563,7 @@
 85C:\Users\Lenovo\Documents\GitHub\movies-TMDB\node_modules\@parcel\watcher\src\windows133008863169368592 1
 82C:\Users\Lenovo\Documents\GitHub\movies-TMDB\node_modules\@parcel\packager-svg\src133008863128909339 1
 68C:\Users\Lenovo\Documents\GitHub\movies-TMDB\node_modules\parse-json133008863112072751 1
-67C:\Users\Lenovo\Documents\GitHub\movies-TMDB\dist\index.975ef6c8.js133008969821239334 0
+67C:\Users\Lenovo\Documents\GitHub\movies-TMDB\dist\index.975ef6c8.js133008972901185063 0
 67C:\Users\Lenovo\Documents\GitHub\movies-TMDB\node_modules\path-type133008863114415976 1
 87C:\Users\Lenovo\Documents\GitHub\movies-TMDB\node_modules\posthtml-include\package.json133008863115040815 0
 99C:\Users\Lenovo\Documents\GitHub\movies-TMDB\node_modules\electron-to-chromium\chromium-versions.js133008863117193351 0
@@ -4698,7 +4698,7 @@
 73C:\Users\Lenovo\Documents\GitHub\movies-TMDB\node_modules\.bin\semver.ps1133008863239039655 0
 67C:\Users\Lenovo\Documents\GitHub\movies-TMDB\node_modules\.bin\svgo133008863239039655 0
 69C:\Users\Lenovo\Documents\GitHub\movies-TMDB\node_modules\.bin\terser133008863239039655 0
-71C:\Users\Lenovo\Documents\GitHub\movies-TMDB\dist\index.975ef6c8.js.map133008969821309147 0
+71C:\Users\Lenovo\Documents\GitHub\movies-TMDB\dist\index.975ef6c8.js.map133008972901224950 0
 68C:\Users\Lenovo\Documents\GitHub\movies-TMDB\dist\index.b07a87f3.css133008967126392662 0
 77C:\Users\Lenovo\Documents\GitHub\movies-TMDB\assets\actions-config-step-2.png133008857512459365 0
 68C:\Users\Lenovo\Documents\GitHub\movies-TMDB\assets\how-it-works.png133008857512771795 0
