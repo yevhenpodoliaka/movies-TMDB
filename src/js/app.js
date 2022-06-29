@@ -44,12 +44,10 @@ async function onFormSubmit(e) {
 async function onDecrementBtnClick() {
   search.decrementPage();
   onHomePage();
-  console.log(search.currentPage);
 }
 async function onIncrementBtnClick() {
   search.incrementPage();
   onHomePage();
-  console.log(search.currentPage);
 }
 
 function uppendMarkapGalleryList(string) {
@@ -67,11 +65,26 @@ async function onCardClick(e) {
 
     const markup = await createMarkupCard(data);
     await uppendMarkapModal(markup);
+    refs.backdrop.addEventListener('click', onBtnCloseModalClick);
+    refs.backdrop.addEventListener('click', onBtnAddToQueueClick);
+    refs.backdrop.addEventListener('click', onBtnAddWachedClick);
   }
 }
-//  refs.closeModal.addEventListener('click', onBtnCloseModalClick);
-// refs.addToQueue.addEventListener('click', onBtnAddToQueueClick);
-// refs.addWached.addEventListener('click', onBtnAddWachedClick);
-function onBtnCloseModalClick() {
-  refs.backdrop.classList.add('visually-hidden');
+
+function onBtnAddToQueueClick(e) {
+  if (e.target.dataset.action === 'add-queue') {
+   
+  }
+}
+function onBtnAddWachedClick(e) {
+  if (e.target.dataset.action === 'add-wached') {
+  }
+}
+function onBtnCloseModalClick(e) {
+  if (
+    e.target.dataset.action === 'close-modal' ||
+    e.currentTarget === e.target
+  ) {
+    refs.backdrop.classList.add('visually-hidden');
+  }
 }

@@ -7,9 +7,6 @@ export default {
   libaryOptions: document.querySelector('#libaryOptions'),
   decrementBtn: document.querySelector('#decrementBtn'),
   incrementBtn: document.querySelector('#incrementBtn'),
-  card: document.querySelector('.gallery__item'),
+  card: document.querySelector('.card'),
   backdrop: document.querySelector('#backdrop'),
-  closeModal: document.querySelector('#close-modal'),
-  addToQueue: document.querySelector('#add-to-queue'),
-  addWached: document.querySelector('#add-wached'),
 };

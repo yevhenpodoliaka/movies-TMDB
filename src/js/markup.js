@@ -27,9 +27,9 @@ const IMG_URL = 'https://image.tmdb.org/t/p/w500/';
 
 function createMarkupCard({ id, backdrop_path, budget, genres, homepage }) {
   return `<div class="card" id=${id}>
-     <button id="close-modal">close</button>
-  <button id="add-to-queue">Add to queue</button>
-  <button id="add-wached">Add Wached</button>
+  <button data-action="close-modal">close</button>
+  <button data-action="add-queue">Add to queue</button>
+  <button data-action="add-wached">Add Wached</button>
   <img src=${IMG_URL}${backdrop_path} alt="">
   <p>budget ${budget}</p>
   <p>genres</p>
