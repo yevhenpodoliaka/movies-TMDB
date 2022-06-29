@@ -1,6 +1,7 @@
 import { createMarkupCard, createMarkupList } from './markup';
 import refs from './refs';
 import Search from './api-servise';
+import Storage from './local-storage';
 
 window.addEventListener('DOMContentLoaded', onHomePage);
 refs.homeBtn.addEventListener('click', onClickBtnHome);
@@ -17,12 +18,14 @@ async function onHomePage() {
 }
 
 const search = new Search();
+const storage = new Storage();
 
 async function renderList() {
   const data = await search.fetchByUrl();
   const markup = await createMarkupList(data);
   return await uppendMarkapGalleryList(markup);
 }
+
 function onClickBtnHome() {
   refs.form.classList.remove('visually-hidden');
   refs.libaryOptions.classList.add('visually-hidden');
@@ -72,29 +75,35 @@ function uppendMarkapModal(string) {
 }
 // ------Modal----------------
 async function onCardClick(e) {
+  const filmId = e.target.getAttribute('id');
+  search.currentId = filmId;
   if (e.target.classList.contains('gallery__item')) {
-    const filmId = e.target.getAttribute('id');
     const data = await search.fetchById(filmId);
-    search.currentId = filmId;
     refs.backdrop.classList.remove('visually-hidden');
-
     const markup = await createMarkupCard(data);
-    refs.card = document.querySelector('.card');
     await uppendMarkapModal(markup);
-    refs.backdrop.addEventListener('click', onBtnCloseModalClick);
-    refs.backdrop.addEventListener('click', onBtnAddToQueueClick);
-    refs.backdrop.addEventListener('click', onBtnAddWachedClick);
   }
+
+  await openModal();
+}
+
+function openModal() {
+  document.addEventListener('keydown', onCloseEsc);
+  refs.backdrop.addEventListener('click', onBtnCloseModalClick);
+  refs.backdrop.addEventListener('click', onBtnAddToQueueClick);
+  refs.backdrop.addEventListener('click', onBtnAddWachedClick);
 }
 
 function onBtnAddToQueueClick(e) {
   if (e.target.dataset.action === 'add-queue') {
-    console.log(search.currentId);
+    storage.addInQueuedList(search.currentId);
+    console.log(localStorage.getItem('queuedList'));
   }
 }
 function onBtnAddWachedClick(e) {
   if (e.target.dataset.action === 'add-wached') {
-    console.log(search.currentId);
+    storage.addInWatchedList(search.currentId);
+    console.log(localStorage.getItem('watchedList'));
   }
 }
 function onBtnCloseModalClick(e) {
@@ -102,6 +111,19 @@ function onBtnCloseModalClick(e) {
     e.target.dataset.action === 'close-modal' ||
     e.currentTarget === e.target
   ) {
-    refs.backdrop.classList.add('visually-hidden');
+    closeModal();
   }
+}
+function onCloseEsc(e) {
+  if (e.code === 'Escape') {
+    closeModal();
+  }
+}
+
+function closeModal() {
+  refs.backdrop.classList.add('visually-hidden');
+  document.removeEventListener('keydown', onCloseEsc);
+  refs.backdrop.removeEventListener('click', onBtnCloseModalClick);
+  refs.backdrop.removeEventListener('click', onBtnAddToQueueClick);
+  refs.backdrop.removeEventListener('click', onBtnAddWachedClick);
 }

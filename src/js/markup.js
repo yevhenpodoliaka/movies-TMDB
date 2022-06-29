@@ -1,5 +1,6 @@
 const IMG_URL = 'https://image.tmdb.org/t/p/w500/';
-
+import Storage from './local-storage';
+const storage = new Storage();
 // backdrop_path: "/egoyMDLqCxzjnSrWOz50uLlJWmD.jpg"
 // belongs_to_collection: {id: 720879, name: "Sonic the Hedgehog Collection", poster_path: "/rEC1pkQ1UbX7USRkVIrt2Nk7hlC.jpg",…}
 // budget: 110000000
@@ -26,6 +27,7 @@ const IMG_URL = 'https://image.tmdb.org/t/p/w500/';
 // vote_count: 2274
 
 function createMarkupCard({ id, backdrop_path, budget, genres, homepage }) {
+  console.log(storage);
   return `<div class="card" id=${id}>
   <button data-action="close-modal">close</button>
   <button data-action="add-queue">Add to queue</button>
