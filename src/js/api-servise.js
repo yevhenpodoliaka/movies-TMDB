@@ -5,6 +5,7 @@ const URL = BASE_URL + 'discover/movie' + API_KEY + '&sort_by=popularity.desc';
 class Search {
   constructor() {
     this.currentPage = 1;
+    this.currentId = null;
   }
 
   async fetchPopular() {

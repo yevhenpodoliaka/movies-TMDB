@@ -31,9 +31,7 @@ function createMarkupCard({ id, backdrop_path, budget, genres, homepage }) {
   <button data-action="add-queue">Add to queue</button>
   <button data-action="add-wached">Add Wached</button>
   <img src=${IMG_URL}${backdrop_path} alt="">
-  <p>budget ${budget}</p>
-  <p>genres</p>
-  <a href=${homepage}>homepage</a>
+
 </div>`;
 }
 

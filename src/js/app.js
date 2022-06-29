@@ -61,9 +61,11 @@ async function onCardClick(e) {
   if (e.target.classList.contains('gallery__item')) {
     const filmId = e.target.getAttribute('id');
     const data = await search.fetchById(filmId);
+    search.currentId = filmId;
     refs.backdrop.classList.remove('visually-hidden');
 
     const markup = await createMarkupCard(data);
+    refs.card = document.querySelector('.card');
     await uppendMarkapModal(markup);
     refs.backdrop.addEventListener('click', onBtnCloseModalClick);
     refs.backdrop.addEventListener('click', onBtnAddToQueueClick);
@@ -73,11 +75,12 @@ async function onCardClick(e) {
 
 function onBtnAddToQueueClick(e) {
   if (e.target.dataset.action === 'add-queue') {
-   
+    console.log(search.currentId);
   }
 }
 function onBtnAddWachedClick(e) {
   if (e.target.dataset.action === 'add-wached') {
+    console.log(search.currentId);
   }
 }
 function onBtnCloseModalClick(e) {

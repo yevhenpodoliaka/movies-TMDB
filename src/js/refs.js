@@ -7,6 +7,6 @@ export default {
   libaryOptions: document.querySelector('#libaryOptions'),
   decrementBtn: document.querySelector('#decrementBtn'),
   incrementBtn: document.querySelector('#incrementBtn'),
-  card: document.querySelector('.card'),
+  card: null,
   backdrop: document.querySelector('#backdrop'),
 };
