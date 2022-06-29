@@ -1,10 +1,10 @@
 export default {
-  gallery: document.querySelector('#gallery__list'),
+  gallery: document.querySelector('#gallery'),
   libary: document.querySelector('#libary'),
   homeBtn: document.querySelector('#homeBtn'),
   libaryBtn: document.querySelector('#libaryBtn'),
   form: document.querySelector('#form'),
-  libaryOptions: document.querySelector('#libary__options'),
+  libaryOptions: document.querySelector('#libaryOptions'),
   decrementBtn: document.querySelector('#decrementBtn'),
   incrementBtn: document.querySelector('#incrementBtn'),
   card: document.querySelector('.gallery__item'),
