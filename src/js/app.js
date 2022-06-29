@@ -18,6 +18,11 @@ async function onHomePage() {
 
 const search = new Search();
 
+async function renderList() {
+  const data = await search.fetchByUrl();
+  const markup = await createMarkupList(data);
+  return await uppendMarkapGalleryList(markup);
+}
 function onClickBtnHome() {
   refs.form.classList.remove('visually-hidden');
   refs.libaryOptions.classList.add('visually-hidden');
@@ -35,6 +40,7 @@ function onClickBtnLibary() {
 
 async function onFormSubmit(e) {
   e.preventDefault();
+  search.currentPage = 1;
   const query = e.target.elements.input.value;
   const data = await search.fetchByWord(query);
   const markup = await createMarkupList(data);
@@ -42,12 +48,20 @@ async function onFormSubmit(e) {
 }
 
 async function onDecrementBtnClick() {
-  search.decrementPage();
-  onHomePage();
+  await search.decrementPage();
+  await renderList();
+  window.scroll({
+    top: 0,
+    behavior: 'smooth',
+  });
 }
 async function onIncrementBtnClick() {
-  search.incrementPage();
-  onHomePage();
+  await search.incrementPage();
+  await renderList();
+  window.scroll({
+    top: 1,
+    behavior: 'smooth',
+  });
 }
 
 function uppendMarkapGalleryList(string) {
