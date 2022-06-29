@@ -81,8 +81,8 @@ async function onCardClick(e) {
     const data = await search.fetchById(filmId);
 
     refs.backdrop.classList.remove('visually-hidden');
-    // const markup = await createMarkupCard(data);
-    // await uppendMarkapModal(markup);
+    const markup = await createMarkupCard(data);
+    await uppendMarkapModal(markup);
   }
   if (storage.watchedList.includes(filmId)) {
   }

@@ -1,81 +1,84 @@
-.card {
-  position: relative;
-  background-color: #fff;
-  padding: 48px 20px;
-  @media screen and(min-width:768px) {
-    padding: 0px;
-    display: flex;
-  }
-}
-.img-wrap {
-  margin-bottom: 20px;
-  @media screen and(min-width:768px) {
-    width: 50%;
-    margin-bottom: 0;
-    padding: 40px;
-    img {
-      height: 373px;
-      border-radius: 5px;
-    }
-  }
-  @media screen and(min-width:1200px) {
-    padding: 40px 12px;
+// .card {
+//   position: relative;
+//   background-color: #fff;
+//   padding: 48px 20px;
 
-    img {
-      height: 478px;
-      border-radius: 5px;
-    }
-  }
-}
-.description-wrap {
-  @media screen and(min-width:768px) {
-    width: 50%;
-    padding: 40px;
-  }
-  @media screen and(min-width:1200px) {
-    padding: 40px 4px;
-  }
-}
-.card__title {
-  font-size: 20px;
-  line-height: 23px;
-  margin-bottom: 20px;
+//   @media screen and(min-width:768px) {
+//     padding: 0px;
+//     display: flex;
+//   }
+// }
+// .img-wrap {
+//   margin-bottom: 20px;
+//   @media screen and(min-width:768px) {
+//     width: 50%;
+//     margin-bottom: 0;
+//     padding: 40px;
+//     img {
+//       height: 373px;
+  
+//       border-radius: 5px;
+//     }
+//   }
+//   @media screen and(min-width:1200px) {
+//     padding: 40px 12px;
 
-  @media screen and(min-width:1200px) {
-    font-size: 30px;
-    line-height: 35px;
-  }
-}
-.card__info {
-  display: flex;
-  margin-bottom: 20px;
-}
-.info-key{
-    width: 50%;
-    p{
-        color: #8C8C8C;
-    }
-}
-.info-value {
-  width: 50%;
-}
-.card__option {
-  text-align: center;
+//     img {
+//       height: 478px;
 
-  button {
-    font-weight: bold;
-    font-size: 12px;
-    line-height: 16px;
-    padding: 13px;
-    border-radius: 5px;
-  }
-}
-.card__about {
-  margin-bottom: 20px;
-  line-height: 20px;
-}
-.close-card {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-}
+//       border-radius: 5px;
+//     }
+//   }
+// }
+// .description-wrap {
+//   @media screen and(min-width:768px) {
+//     width: 50%;
+//     padding: 40px;
+//   }
+//   @media screen and(min-width:1200px) {
+//     padding: 40px 4px;
+//   }
+// }
+// .card__title {
+//   font-size: 20px;
+//   line-height: 23px;
+//   margin-bottom: 20px;
+
+//   @media screen and(min-width:1200px) {
+//     font-size: 30px;
+//     line-height: 35px;
+//   }
+// }
+// .card__info {
+//   display: flex;
+//   margin-bottom: 20px;
+// }
+// .info-key{
+//     width: 50%;
+//     p{
+//         color: #8C8C8C;
+//     }
+// }
+// .info-value {
+//   width: 50%;
+// }
+// .card__option {
+//   text-align: center;
+
+//   button {
+//     font-weight: bold;
+//     font-size: 12px;
+//     line-height: 16px;
+//     padding: 13px;
+//     border-radius: 5px;
+//   }
+// }
+// .card__about {
+//   margin-bottom: 20px;
+//   line-height: 20px;
+// }
+// .close-card {
+//   position: absolute;
+//   top: 20px;
+//   right: 20px;
+// }
