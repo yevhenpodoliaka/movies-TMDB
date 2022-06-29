@@ -79,19 +79,15 @@ async function onCardClick(e) {
   search.currentId = filmId;
   if (e.target.classList.contains('gallery__item')) {
     const data = await search.fetchById(filmId);
+
     refs.backdrop.classList.remove('visually-hidden');
-    const markup = await createMarkupCard(data);
-    await uppendMarkapModal(markup);
+    // const markup = await createMarkupCard(data);
+    // await uppendMarkapModal(markup);
   }
-
+  if (storage.watchedList.includes(filmId)) {
+  }
+  console.log(refs);
   await openModal();
-}
-
-function openModal() {
-  document.addEventListener('keydown', onCloseEsc);
-  refs.backdrop.addEventListener('click', onBtnCloseModalClick);
-  refs.backdrop.addEventListener('click', onBtnAddToQueueClick);
-  refs.backdrop.addEventListener('click', onBtnAddWachedClick);
 }
 
 function onBtnAddToQueueClick(e) {
@@ -126,4 +122,14 @@ function closeModal() {
   refs.backdrop.removeEventListener('click', onBtnCloseModalClick);
   refs.backdrop.removeEventListener('click', onBtnAddToQueueClick);
   refs.backdrop.removeEventListener('click', onBtnAddWachedClick);
+}
+function openModal() {
+  document.addEventListener('keydown', onCloseEsc);
+  refs.backdrop.addEventListener('click', onBtnCloseModalClick);
+  refs.backdrop.addEventListener('click', onBtnAddToQueueClick);
+  refs.backdrop.addEventListener('click', onBtnAddWachedClick);
+}
+
+function createCard() {
+  const card = document.createElement(div);
 }

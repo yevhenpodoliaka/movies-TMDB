@@ -27,7 +27,6 @@ const storage = new Storage();
 // vote_count: 2274
 
 function createMarkupCard({ id, backdrop_path, budget, genres, homepage }) {
-  console.log(storage);
   return `<div class="card" id=${id}>
   <button data-action="close-modal">close</button>
   <button data-action="add-queue">Add to queue</button>
