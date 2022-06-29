@@ -4,6 +4,7 @@ export default {
   homeBtn: document.querySelector('#homeBtn'),
   libaryBtn: document.querySelector('#libaryBtn'),
   form: document.querySelector('#form'),
+  errorInfo: document.querySelector('#errorInfo'),
   libaryOptions: document.querySelector('#libaryOptions'),
   decrementBtn: document.querySelector('#decrementBtn'),
   incrementBtn: document.querySelector('#incrementBtn'),

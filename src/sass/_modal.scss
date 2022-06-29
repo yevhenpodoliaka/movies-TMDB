@@ -1,114 +1,131 @@
 @import '~node_modules/modern-normalize/modern-normalize.css';
 #backdrop {
-    z-index: 10;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.4);
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-   
-} 
+  z-index: 10;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  overflow-y: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .card {
-    position: relative;
-    background-color: #fff;
-    padding: 48px 20px;
+    margin-top: 5hw;
+  position: relative;
+  background-color: #fff;
+  padding: 48px 20px;
+  max-width: 280px;
 
-    @media screen and(min-width:768px) {
-        padding: 0px;
-        display: flex;
-    }
+  @media screen and(min-width:768px) {
+    max-width: 704px;
+    padding: 0px;
+    display: flex;
+  }
+  @media screen and(min-width:1200px) {
+    max-width: 806px;
+  }
 }
 
 .img-wrap {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 
-    @media screen and(min-width:768px) {
-        width: 50%;
-        margin-bottom: 0;
-        padding: 40px;
+  @media screen and(min-width:768px) {
+    width: 50%;
+    margin-bottom: 0;
+    padding: 40px;
 
-        img {
-            height: 373px;
+    img {
+      height: 373px;
 
-            border-radius: 5px;
-        }
+      border-radius: 5px;
     }
+  }
 
-    @media screen and(min-width:1200px) {
-        padding: 40px 12px;
+  @media screen and(min-width:1200px) {
+    padding: 40px 12px;
 
-        img {
-            height: 478px;
+    img {
+      height: 478px;
 
-            border-radius: 5px;
-        }
+      border-radius: 5px;
     }
+  }
 }
 
 .description-wrap {
-    @media screen and(min-width:768px) {
-        width: 50%;
-        padding: 40px;
-    }
+  @media screen and(min-width:768px) {
+    width: 50%;
+    padding: 40px;
+  }
 
-    @media screen and(min-width:1200px) {
-        padding: 40px 4px;
-    }
+  @media screen and(min-width:1200px) {
+    padding: 40px 4px;
+  }
 }
 
 .card__title {
-    font-size: 20px;
-    line-height: 23px;
-    margin-bottom: 20px;
+  font-size: 20px;
+  line-height: 23px;
+  margin-bottom: 20px;
 
-    @media screen and(min-width:1200px) {
-        font-size: 30px;
-        line-height: 35px;
-    }
+  @media screen and(min-width:1200px) {
+    font-size: 30px;
+    line-height: 35px;
+  }
 }
 
 .card__info {
-    display: flex;
-    margin-bottom: 20px;
+  display: flex;
+  margin-bottom: 20px;
 }
 
 .info-key {
-    width: 50%;
+  width: 50%;
 
-    p {
-        color: #8C8C8C;
-    }
+  p {
+    color: #8c8c8c;
+  }
 }
 
 .info-value {
-    width: 50%;
+  width: 50%;
 }
 
 .card__option {
-    text-align: center;
+  text-align: center;
 
-    button {
-        font-weight: bold;
-        font-size: 12px;
-        line-height: 16px;
-        padding: 13px;
-        border-radius: 5px;
-    }
+  button {
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 16px;
+    padding: 13px;
+    border-radius: 5px;
+    &:hover {
+            background-color: #FF6B01;
+            color: white;
+            border: transparent;
+        }
+   
+  }
 }
 
 .card__about {
-    margin-bottom: 20px;
-    line-height: 20px;
+  margin-bottom: 20px;
+  line-height: 20px;
 }
 
 .close-modal {
-    position: absolute;
-    top: 20px;
-    right: 20px;
+  position: absolute;
+  border: transparent;
+  border-radius: 50%;
+  padding: 5px;
+  top: 20px;
+  right: 20px;
+  &:hover{
+    background-color: #FF6B01;
+    color: white;
+  }
 }

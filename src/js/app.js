@@ -46,6 +46,12 @@ async function onFormSubmit(e) {
   search.currentPage = 1;
   const query = e.target.elements.input.value;
   const data = await search.fetchByWord(query);
+  console.log(data);
+  if (data.length === 0) {
+    refs.errorInfo.textContent =
+      'Search result not successful. Enter the correct movie name and ';
+    return;
+  }
   const markup = await createMarkupList(data);
   return await uppendMarkapGalleryList(markup);
 }
@@ -128,8 +134,4 @@ function openModal() {
   refs.backdrop.addEventListener('click', onBtnCloseModalClick);
   refs.backdrop.addEventListener('click', onBtnAddToQueueClick);
   refs.backdrop.addEventListener('click', onBtnAddWachedClick);
-}
-
-function createCard() {
-  const card = document.createElement(div);
 }

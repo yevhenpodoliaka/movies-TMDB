@@ -27,18 +27,21 @@ const storage = new Storage();
 // vote_count: 2274
 function createMarkupCard({
   id,
-  backdrop_path,
+  poster_path,
   budget,
-  popularity,
-  title,
   genres,
   homepage,
+  vote_count,
+  vote_average,
   original_title,
+  popularity,
+  title,
+  overview,
 }) {
   return `<div class="card" id=${id}>
-    <button class="close-modal" data-action="close-modal">close</button>
+    <button class="close-modal" data-action="close-modal">&#10006;</button>
     <div class="img-wrap">
-      <img class="card__img" src=${IMG_URL}${backdrop_path} alt="cinema" />
+      <img class="card__img" src=${IMG_URL}${poster_path} alt="cinema" />
     </div>
     <div class="description-wrap">
       <h2 class="card__title">${title}</h2>
@@ -51,22 +54,15 @@ function createMarkupCard({
           <p>Genre</p>
         </div>
         <div class="info-value">
-          <p><span>7.3</span>/<span>1260</span></p>
+          <p><span>${vote_average}</span>/<span>${vote_count}</span></p>
           <p>${popularity}</p>
           <p>${original_title}</p>
-          <p>Western</p>
+          <p>geners</p>
         </div>
       </div>
       <h3>About</h3>
       <p class="card__about">
-        Four of the West’s most infamous outlaws assemble to steal a huge stash
-        of gold from the most corrupt settlement of the gold rush towns. But not
-        all goes to plan one is killed and the other three escapes with bags of
-        gold hide out in the abandoned gold mine where they happen across
-        another gang of three – who themselves were planning to hit the very
-        same bank! As tensions rise, things go from bad to worse as they realise
-        the bags of gold are filled with lead... they’ve been double crossed –
-        but by who and how?
+        ${overview}
       </p>
       <div class="card__option">
         <button data-action="add-wached">add to Watched</button>
