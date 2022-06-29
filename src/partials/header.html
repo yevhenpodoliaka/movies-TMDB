@@ -1,11 +1,16 @@
 <header class="header">
     <nav>
     <span>logo</span>
-    <button id="home" type="button">Home</button>
-    <button id="libary" type="button">My Libary</button>
+    <button id="homeBtn" type="button">Home</button>
+    <button id="libaryBtn" type="button">My Libary</button>
     </nav>
 
     <form id="form">
-        <input type="text" name="input" />
+        <input type="text" name="input" placeholder="search"/>
+        <span id="error-info"></span>
     </form>
+    <div id="libary__options" class=" visually-hidden">
+        <button id="watched">Watched</button>
+        <button id="queue">Queue</button>
+    </div>
 </header>

@@ -19,11 +19,18 @@ async function onHomePage() {
 const search = new Search();
 
 function onClickBtnHome() {
+  refs.form.classList.remove('visually-hidden');
+  refs.libaryOptions.classList.add('visually-hidden');
+  refs.gallery.classList.remove('visually-hidden');
+  refs.libary.classList.add('visually-hidden');
   onHomePage();
 }
 
 function onClickBtnLibary() {
-  refs.gallery.innerHTML = '';
+  refs.form.classList.add('visually-hidden');
+  refs.libaryOptions.classList.remove('visually-hidden');
+  refs.gallery.classList.add('visually-hidden');
+  refs.libary.classList.remove('visually-hidden');
 }
 
 async function onFormSubmit(e) {

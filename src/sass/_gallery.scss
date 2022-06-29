@@ -1,5 +1,5 @@
 @import '~node_modules/modern-normalize/modern-normalize.css';
-.gallery__list{
+#gallery__list{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 10px;
@@ -13,4 +13,10 @@
 }
 .info-wrap {
     pointer-events: none;
+}
+#gallery__option{
+    text-align: center;
+    button{
+        width: 15%;
+    }
 }
