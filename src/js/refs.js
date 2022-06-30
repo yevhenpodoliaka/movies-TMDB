@@ -8,7 +8,7 @@ export default {
   libaryOptions: document.querySelector('#libaryOptions'),
   decrementBtn: document.querySelector('#decrementBtn'),
   incrementBtn: document.querySelector('#incrementBtn'),
-  backdrop: document.querySelector('#backdrop'),
-  addToQueue: document.querySelector('#add-to-queue'),
-  addWached: document.querySelector('#add-wached'),
+  backdrop: document.querySelector('.backdrop'),
+  addToQueue: document.querySelector('.btn-add-queue'),
+  addWached: document.querySelector('.btn-add-wached'),
 };

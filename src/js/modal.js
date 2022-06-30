@@ -16,14 +16,16 @@ async function uppendModalMarkap(markup) {
 }
 
 async function renderModal(filmId) {
+  refs.backdrop.setAttribute('id', filmId);
   const data = await fetchById(filmId);
   const markup = await createModalMarkup(data);
   await uppendModalMarkap(markup);
+  if (storage.watchedList.includes(filmId)) {
+  }
   openModal();
 }
 
 function createModalMarkup({
-  id,
   poster_path,
   budget,
   genres,
@@ -35,7 +37,7 @@ function createModalMarkup({
   title,
   overview,
 }) {
-  return `<div class="modal" id=${id}>
+  return `<div class="modal">
     <button class="close-modal" data-action="close-modal">&#10006;</button>
     <div class="img-wrap">
       <img class="card__img" src=${IMG_URL}${poster_path} alt="cinema" />
@@ -66,8 +68,8 @@ function createModalMarkup({
         ${overview}
       </p>
       <div class="card__option">
-        <button data-action="add-wached">add to Watched</button>
-        <button data-action="add-queue">add to queue</button>
+        <button class="btn-add-wached" data-action="add-wached">add to Watched</button>
+        <button class="btn-add-queue" data-action="add-queue">add to queue</button>
       </div>
     </div>
   </div>`;
@@ -79,15 +81,20 @@ function onCloseEsc(e) {
 }
 
 function onBtnAddToQueueClick(e) {
+  console.log(refs);
   if (e.target.dataset.action === 'add-queue') {
-    storage.addInQueuedList(search.currentId);
-    console.log(localStorage.getItem('queuedList'));
+    const filmId = e.currentTarget.getAttribute('id');
+    // storage.addInQueuedList(search.currentId);
+    // console.log(localStorage.getItem('queuedList'));
   }
 }
 function onBtnAddWachedClick(e) {
+  console.log(refs);
   if (e.target.dataset.action === 'add-wached') {
-    storage.addInWatchedList(search.currentId);
-    console.log(localStorage.getItem('watchedList'));
+    const filmId = e.currentTarget.getAttribute('id');
+    // storage.addInWatchedList(search.currentId);
+
+    // console.log(localStorage.getItem('watchedList'));
   }
 }
 function onBtnCloseModalClick(e) {
