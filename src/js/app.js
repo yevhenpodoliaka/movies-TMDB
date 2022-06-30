@@ -1,4 +1,5 @@
-import { createMarkupCard, createMarkupList } from './markup';
+import createMarkupList from './create-markup-list';
+import renderModal from './modal';
 import refs from './refs';
 import Search from './api-servise';
 import Storage from './local-storage';
@@ -76,62 +77,14 @@ async function onIncrementBtnClick() {
 function uppendMarkapGalleryList(string) {
   refs.gallery.innerHTML = string;
 }
-function uppendMarkapModal(string) {
-  refs.backdrop.innerHTML = string;
-}
+
 // ------Modal----------------
 async function onCardClick(e) {
   const filmId = e.target.getAttribute('id');
-  search.currentId = filmId;
   if (e.target.classList.contains('gallery__item')) {
-    const data = await search.fetchById(filmId);
-
-    refs.backdrop.classList.remove('visually-hidden');
-    const markup = await createMarkupCard(data);
-    await uppendMarkapModal(markup);
+    await renderModal(filmId);
   }
   if (storage.watchedList.includes(filmId)) {
   }
-  console.log(refs);
-  await openModal();
-}
-
-function onBtnAddToQueueClick(e) {
-  if (e.target.dataset.action === 'add-queue') {
-    storage.addInQueuedList(search.currentId);
-    console.log(localStorage.getItem('queuedList'));
-  }
-}
-function onBtnAddWachedClick(e) {
-  if (e.target.dataset.action === 'add-wached') {
-    storage.addInWatchedList(search.currentId);
-    console.log(localStorage.getItem('watchedList'));
-  }
-}
-function onBtnCloseModalClick(e) {
-  if (
-    e.target.dataset.action === 'close-modal' ||
-    e.currentTarget === e.target
-  ) {
-    closeModal();
-  }
-}
-function onCloseEsc(e) {
-  if (e.code === 'Escape') {
-    closeModal();
-  }
-}
-
-function closeModal() {
-  refs.backdrop.classList.add('visually-hidden');
-  document.removeEventListener('keydown', onCloseEsc);
-  refs.backdrop.removeEventListener('click', onBtnCloseModalClick);
-  refs.backdrop.removeEventListener('click', onBtnAddToQueueClick);
-  refs.backdrop.removeEventListener('click', onBtnAddWachedClick);
-}
-function openModal() {
-  document.addEventListener('keydown', onCloseEsc);
-  refs.backdrop.addEventListener('click', onBtnCloseModalClick);
-  refs.backdrop.addEventListener('click', onBtnAddToQueueClick);
-  refs.backdrop.addEventListener('click', onBtnAddWachedClick);
+  await console.log(refs);
 }

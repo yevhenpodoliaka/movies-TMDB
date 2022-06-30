@@ -6,7 +6,7 @@ class Search {
   constructor() {
     this.url = null;
     this.currentPage = 1;
-    this.currentId = null;
+    // this.currentId = null;
   }
 
   async fetchPopular() {
@@ -29,11 +29,6 @@ class Search {
     const data = await response.json();
     return data.results;
   }
-  async fetchById(movieId) {
-    const response = await fetch(BASE_URL + `movie/${movieId}` + API_KEY);
-    const data = await response.json();
-    return data;
-  }
 
   incrementPage() {
     this.currentPage += 1;
@@ -45,6 +40,12 @@ class Search {
       console.log(this);
     }
   }
+
+  // async fetchById(movieId) {
+  //   const response = await fetch(BASE_URL + `movie/${movieId}` + API_KEY);
+  //   const data = await response.json();
+  //   return data;
+  // }
 }
 
 export default Search;
