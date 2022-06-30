@@ -5,6 +5,7 @@ class Storage {
     this.watchedList = JSON.parse(localStorage.getItem('watchedList')) ?? [];
     this.queuedList = JSON.parse(localStorage.getItem('queuedList')) ?? [];
   }
+
   addInWatchedList(id) {
     this.watchedList.push(id);
     localStorage.setItem('watchedList', JSON.stringify(this.watchedList));

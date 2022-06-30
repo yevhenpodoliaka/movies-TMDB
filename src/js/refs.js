@@ -9,6 +9,6 @@ export default {
   decrementBtn: document.querySelector('#decrementBtn'),
   incrementBtn: document.querySelector('#incrementBtn'),
   backdrop: document.querySelector('.backdrop'),
-  addToQueue: document.querySelector('.btn-add-queue'),
-  addWached: document.querySelector('.btn-add-wached'),
+  addToQueue: null,
+  addWached: null,
 };

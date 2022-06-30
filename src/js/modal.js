@@ -5,6 +5,7 @@ const API_KEY = '?api_key=b6201d5209ec246f483ea16253167a90';
 const IMG_URL = 'https://image.tmdb.org/t/p/w500/';
 const storage = new Storage();
 
+console.log(storage);
 async function fetchById(movieId) {
   const response = await fetch(BASE_URL + `movie/${movieId}` + API_KEY);
   const data = await response.json();
@@ -20,11 +21,16 @@ async function renderModal(filmId) {
   const data = await fetchById(filmId);
   const markup = await createModalMarkup(data);
   await uppendModalMarkap(markup);
+  refs.addToQueue = document.querySelector('.btn-add-queue');
+  refs.addWached = document.querySelector('.btn-add-wached');
   if (storage.watchedList.includes(filmId)) {
+    refs.addWached.textContent = 'film in wached List';
+  }
+  if (storage.queuedList.includes(filmId)) {
+    refs.addToQueue.textContent = 'film in queue List';
   }
   openModal();
 }
-
 function createModalMarkup({
   poster_path,
   budget,
@@ -84,17 +90,16 @@ function onBtnAddToQueueClick(e) {
   console.log(refs);
   if (e.target.dataset.action === 'add-queue') {
     const filmId = e.currentTarget.getAttribute('id');
-    // storage.addInQueuedList(search.currentId);
-    // console.log(localStorage.getItem('queuedList'));
+    storage.addInQueuedList(filmId);
+    console.log(localStorage.getItem('queuedList'));
   }
 }
 function onBtnAddWachedClick(e) {
   console.log(refs);
   if (e.target.dataset.action === 'add-wached') {
     const filmId = e.currentTarget.getAttribute('id');
-    // storage.addInWatchedList(search.currentId);
-
-    // console.log(localStorage.getItem('watchedList'));
+    storage.addInWatchedList(filmId);
+    console.log(localStorage.getItem('watchedList'));
   }
 }
 function onBtnCloseModalClick(e) {
