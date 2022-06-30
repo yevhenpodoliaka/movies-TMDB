@@ -7,17 +7,21 @@
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.4);
-  overflow-y: auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  overflow: auto;
 }
-.card {
-    margin-top: 5hw;
-  position: relative;
+.modal {
+  position: absolute;
+  top: 5vw;
+  left: 5vw;
+  right: 5vw;
+  bottom: 5vw;
   background-color: #fff;
   padding: 48px 20px;
-  max-width: 280px;
+  overflow: auto;
+  @media screen and(min-width:476px){
+  right: 15vw;
+    left: 15vw;
+  }
 
   @media screen and(min-width:768px) {
     max-width: 704px;
@@ -25,33 +29,30 @@
     display: flex;
   }
   @media screen and(min-width:1200px) {
+    top: 50%;
+    left: 50%;
+    right: auto;
+    bottom: auto;
+    transform: translate(-50%, -50%);
+
     max-width: 806px;
   }
 }
 
 .img-wrap {
   margin-bottom: 20px;
+    img {
+        border-radius: 5px;
+      }
 
   @media screen and(min-width:768px) {
     width: 50%;
     margin-bottom: 0;
     padding: 40px;
-
-    img {
-      height: 373px;
-
-      border-radius: 5px;
-    }
   }
 
   @media screen and(min-width:1200px) {
     padding: 40px 12px;
-
-    img {
-      height: 478px;
-
-      border-radius: 5px;
-    }
   }
 }
 
@@ -78,24 +79,17 @@
 }
 
 .card__info {
-  display: flex;
   margin-bottom: 20px;
-}
-
-.info-key {
-  width: 50%;
-
-  p {
-    color: #8c8c8c;
+  td {
+    width: 50%;
   }
-}
-
-.info-value {
-  width: 50%;
 }
 
 .card__option {
   text-align: center;
+  @media screen and(min-width:768px){
+    display: flex;
+  }
 
   button {
     font-weight: bold;
@@ -104,11 +98,10 @@
     padding: 13px;
     border-radius: 5px;
     &:hover {
-            background-color: #FF6B01;
-            color: white;
-            border: transparent;
-        }
-   
+      background-color: #ff6b01;
+      color: white;
+      border: transparent;
+    }
   }
 }
 
@@ -124,8 +117,8 @@
   padding: 5px;
   top: 20px;
   right: 20px;
-  &:hover{
-    background-color: #FF6B01;
+  &:hover {
+    background-color: #ff6b01;
     color: white;
   }
 }

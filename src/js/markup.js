@@ -38,28 +38,32 @@ function createMarkupCard({
   title,
   overview,
 }) {
-  return `<div class="card" id=${id}>
+  return `<div class="modal" id=${id}>
     <button class="close-modal" data-action="close-modal">&#10006;</button>
     <div class="img-wrap">
       <img class="card__img" src=${IMG_URL}${poster_path} alt="cinema" />
     </div>
     <div class="description-wrap">
       <h2 class="card__title">${title}</h2>
-
-      <div class="card__info">
-        <div class="info-key">
-          <p>Vote/votes</p>
-          <p>Popularity</p>
-          <p>Original Title</p>
-          <p>Genre</p>
-        </div>
-        <div class="info-value">
-          <p><span>${vote_average}</span>/<span>${vote_count}</span></p>
-          <p>${popularity}</p>
-          <p>${original_title}</p>
-          <p>geners</p>
-        </div>
-      </div>
+      <table class="card__info">
+  <tr>
+    <td>Vote/votes</td>
+    <td><span>${vote_average}</span>/<span>${vote_count}</span></td>
+  </tr>
+  <tr>
+    <td>Popularity</td>
+    <td>${popularity}</td>
+  </tr>
+  <tr>
+    <td>Original Title</td>
+    <td>${original_title}</td>
+  </tr>
+  <tr>
+    <td>Genre</td>
+    <td>geners</td>
+  </tr>
+</table>
+    
       <h3>About</h3>
       <p class="card__about">
         ${overview}
@@ -71,16 +75,6 @@ function createMarkupCard({
     </div>
   </div>`;
 }
-
-// function createMarkupCard({ id, backdrop_path, budget, genres, homepage }) {
-//   return `<div class="card" id=${id}>
-//   <button data-action="close-modal">close</button>
-//   <button data-action="add-queue">Add to queue</button>
-//   <button data-action="add-wached">Add Wached</button>
-//   <img src=${IMG_URL}${backdrop_path} alt="">
-
-// </div>`;
-// }
 
 function createMarkupList(arr) {
   return arr
