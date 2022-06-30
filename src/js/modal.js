@@ -44,13 +44,13 @@ function createModalMarkup({
   overview,
 }) {
   return `<div class="modal">
-    <button class="close-modal" data-action="close-modal">&#10006;</button>
-    <div class="img-wrap">
-      <img class="card__img" src=${IMG_URL}${poster_path} alt="cinema" />
+    <button class="modal__close" data-action="close-modal">&#10006;</button>
+    <div class="modal__img-wrap">
+      <img class="modal__img" src=${IMG_URL}${poster_path} alt="cinema" />
     </div>
-    <div class="description-wrap">
-      <h2 class="card__title">${title}</h2>
-      <table class="card__info">
+    <div class="modal__description-wrap">
+      <h2 class="modal__title">${title}</h2>
+      <table class="moal__info">
   <tr>
     <td>Vote/votes</td>
     <td><span>${vote_average}</span>/<span>${vote_count}</span></td>
@@ -69,11 +69,11 @@ function createModalMarkup({
   </tr>
 </table>
     
-      <h3>About</h3>
-      <p class="card__about">
+      <h3 class="modal__about-title">About</h3>
+      <p class="modal__about-text">
         ${overview}
       </p>
-      <div class="card__option">
+      <div class="modal__option">
         <button class="btn-add-wached" data-action="add-wached">add to Watched</button>
         <button class="btn-add-queue" data-action="add-queue">add to queue</button>
       </div>
