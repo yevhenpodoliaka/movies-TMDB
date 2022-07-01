@@ -1,16 +1,11 @@
+import Search from './api-servise';
 import Storage from './local-storage';
 import refs from './refs';
-const BASE_URL = 'https://api.themoviedb.org/3/';
-const API_KEY = '?api_key=b6201d5209ec246f483ea16253167a90';
+import defaultImg from '../images/cinema.jpg';
 const IMG_URL = 'https://image.tmdb.org/t/p/w500/';
-const storage = new Storage();
 
-console.log(storage);
-async function fetchById(movieId) {
-  const response = await fetch(BASE_URL + `movie/${movieId}` + API_KEY);
-  const data = await response.json();
-  return data;
-}
+const search = new Search();
+const storage = new Storage();
 
 async function uppendModalMarkap(markup) {
   refs.backdrop.innerHTML = markup;
@@ -18,7 +13,7 @@ async function uppendModalMarkap(markup) {
 
 async function renderModal(filmId) {
   refs.backdrop.setAttribute('id', filmId);
-  const data = await fetchById(filmId);
+  const data = await search.fetchById(filmId);
   const markup = await createModalMarkup(data);
   await uppendModalMarkap(markup);
   refs.addToQueue = document.querySelector('.btn-add-queue');
@@ -37,7 +32,7 @@ async function renderModal(filmId) {
 function createModalMarkup({
   poster_path,
   budget,
-  genres,
+  genres = [],
   homepage,
   vote_count,
   vote_average,
@@ -46,6 +41,8 @@ function createModalMarkup({
   title,
   overview,
 }) {
+  const genersList = genres.map(element => element.name);
+  console.log(genersList);
   return `<div class="modal">
     <button class="modal__close" data-action="close-modal">&#10006;</button>
  
@@ -68,7 +65,7 @@ function createModalMarkup({
   </tr>
   <tr>
     <td>Genre</td>
-    <td>geners</td>
+    <td>${genersList}</td>
   </tr>
 </table>
     
