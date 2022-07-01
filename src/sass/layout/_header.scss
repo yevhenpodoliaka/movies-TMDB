@@ -1,0 +1,32 @@
+@import '~node_modules/modern-normalize/modern-normalize.css';
+.header {
+  height: 230px;
+  background-color: rgb(51, 99, 195);
+  display: flex;
+  flex-direction: column;
+  padding: 40px 20px;
+  @include tablet {
+    height: 216px;
+    padding: 40px 32px;
+  }
+}
+.form {
+  margin: 0 auto;
+  @include tablet {
+    width: 400px;
+  }
+
+    input {
+      width: 100%;
+      background-color: transparent;
+      border: none;
+      border-bottom: 1px solid black;
+      color: aliceblue;
+  
+      &::placeholder {
+        color: rgba(255, 255, 255, 0.85);
+      }
+    }
+}
+
+

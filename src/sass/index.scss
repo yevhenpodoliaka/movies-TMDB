@@ -1,8 +1,16 @@
-@import './common';
-@import './components';
-@import './visually-hidden';
-@import'./header';
-@import'./gallery';
-@import'./footer';
-@import'./modal';
-@import'./card'
+@import './utils/base-styles';
+@import'./utils/mixin';
+@import './utils/visually-hidden';
+@import './utils/variables';
+
+@import './layout/components';
+
+
+@import'./layout/header';
+@import'./layout/gallery';
+@import'./layout/footer';
+
+@import'./layout/modal';
+@import'./layout/card';
+
+

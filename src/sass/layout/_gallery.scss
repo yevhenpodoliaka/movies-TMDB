@@ -1,0 +1,24 @@
+@import '~node_modules/modern-normalize/modern-normalize.css';
+.gallery{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 10px;
+   
+}
+.gallery__item{
+        background-color: white;
+        color: black;
+        padding: 10px;
+        border-radius: 4px;
+        cursor: pointer;
+}
+.info-wrap {
+    pointer-events: none;
+}
+#gallery__option{
+    text-align: center;
+    button{
+        width: 15%;
+    }
+}
+

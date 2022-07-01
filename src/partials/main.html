@@ -1,28 +1,29 @@
 <header class="header">
-  <nav>
-    <span>logo</span>
-    <button id="homeBtn" type="button">Home</button>
-    <button id="libaryBtn" type="button">My Libary</button>
+  <nav class="header__nav">
+    <span class="header__logo">logo</span>
+    <button class="header__btn-home" type="button">Home</button>
+    <button class="header__btn-libary"  type="button">My Libary</button>
   </nav>
-
-  <form id="form">
+  
+  <form class="form">
     <input type="text" name="input" placeholder="search" />
   </form>
-  <div id="libaryOptions" class="visually-hidden">
-    <button id="watched">Watched</button>
-    <button id="queue">Queue</button>
+
+  <div  class="libary__options visually-hidden">
+    <button class="libary__options-watched">Watched</button>
+    <button class="libary__options-queue">Queue</button>
   </div>
 </header>
 <main>
-  <ul id="gallery"></ul>
-  <div id="libary" class="visually-hidden"></div>
+  <ul class="gallery"></ul>
+  <div  class="libary visually-hidden"></div>
 
   <div id="gallery__option">
     <button id="decrementBtn">prew</button>
     <button id="incrementBtn">next</button>
   </div>
 </main>
-<footer id="footer">
+<footer >
   <span>© 2022 | All Rights Reserved |</span>
 </footer>
 <div class="backdrop visually-hidden"></div>
