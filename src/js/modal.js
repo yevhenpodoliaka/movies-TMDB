@@ -50,22 +50,22 @@ function createModalMarkup({
   
     <div class="modal__description-wrap">
       <h2 class="modal__title">${title}</h2>
-      <table class="moal__info">
+      <table class="modal__info">
   <tr>
-    <td>Vote/votes</td>
-    <td><span>${vote_average}</span>/<span>${vote_count}</span></td>
+    <td class="modal__info-key">Vote/votes</td>
+    <td "modal__info-value"><span class="modal__info-value--accent">${vote_average}</span>/<span     class="modal__info-key--accent">${vote_count}</span></td>
   </tr>
   <tr>
-    <td>Popularity</td>
-    <td>${popularity}</td>
+    <td class="modal__info-key">Popularity</td>
+    <td "modal__info-value">${popularity}</td>
   </tr>
   <tr>
-    <td>Original Title</td>
-    <td>${original_title}</td>
+    <td class="modal__info-key">Original Title</td>
+    <td "modal__info-value">${original_title}</td>
   </tr>
   <tr>
-    <td>Genre</td>
-    <td>${genersList}</td>
+    <td class="modal__info-key">Genre</td>
+    <td "modal__info-value">${genersList}</td>
   </tr>
 </table>
     
