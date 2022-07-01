@@ -1,14 +1,19 @@
 @import '~node_modules/modern-normalize/modern-normalize.css';
 .header {
-  height: 230px;
+  height: 180px;
   background-color: rgb(51, 99, 195);
+  padding: 32px;
+}
+.header__logo{
+  font-size: 44px;
+  color: white;
+}
+.header__nav{
   display: flex;
-  flex-direction: column;
-  padding: 40px 20px;
-  @include tablet {
-    height: 216px;
-    padding: 40px 32px;
-  }
+  align-items: center;
+  justify-content: space-around;
+  margin: 0 auto;
+  margin-bottom: 20px;
 }
 .form {
   margin: 0 auto;

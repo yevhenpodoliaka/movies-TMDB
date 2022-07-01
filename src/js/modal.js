@@ -27,7 +27,6 @@ async function renderModal(filmId) {
   openModal();
 }
 {
-  /* <div class="modal__img-wrap"> </div>; */
 }
 function createModalMarkup({
   poster_path,
@@ -110,19 +109,21 @@ function onBtnCloseModalClick(e) {
     closeModal();
   }
 }
-function closeModal() {
-  refs.backdrop.classList.add('visually-hidden');
-  document.removeEventListener('keydown', onCloseEsc);
-  refs.backdrop.removeEventListener('click', onBtnCloseModalClick);
-  refs.backdrop.removeEventListener('click', onBtnAddToQueueClick);
-  refs.backdrop.removeEventListener('click', onBtnAddWachedClick);
-}
+
 function openModal() {
   refs.backdrop.classList.remove('visually-hidden');
   document.addEventListener('keydown', onCloseEsc);
   refs.backdrop.addEventListener('click', onBtnCloseModalClick);
   refs.backdrop.addEventListener('click', onBtnAddToQueueClick);
   refs.backdrop.addEventListener('click', onBtnAddWachedClick);
+}
+
+function closeModal() {
+  refs.backdrop.classList.add('visually-hidden');
+  document.removeEventListener('keydown', onCloseEsc);
+  refs.backdrop.removeEventListener('click', onBtnCloseModalClick);
+  refs.backdrop.removeEventListener('click', onBtnAddToQueueClick);
+  refs.backdrop.removeEventListener('click', onBtnAddWachedClick);
 }
 export default renderModal;
 // backdrop_path: "/egoyMDLqCxzjnSrWOz50uLlJWmD.jpg"
