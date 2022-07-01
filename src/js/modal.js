@@ -31,6 +31,9 @@ async function renderModal(filmId) {
   }
   openModal();
 }
+{
+  /* <div class="modal__img-wrap"> </div>; */
+}
 function createModalMarkup({
   poster_path,
   budget,
@@ -45,9 +48,9 @@ function createModalMarkup({
 }) {
   return `<div class="modal">
     <button class="modal__close" data-action="close-modal">&#10006;</button>
-    <div class="modal__img-wrap">
+ 
       <img class="modal__img" src=${IMG_URL}${poster_path} alt="cinema" />
-    </div>
+  
     <div class="modal__description-wrap">
       <h2 class="modal__title">${title}</h2>
       <table class="moal__info">
