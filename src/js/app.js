@@ -3,6 +3,7 @@ import renderModal from './modal';
 import refs from './refs';
 import Search from './api-servise';
 import Storage from './local-storage';
+import renderPaginationBtns from './pagination';
 
 window.addEventListener('DOMContentLoaded', renderList);
 refs.homeBtn.addEventListener('click', onClickBtnHome);
@@ -11,14 +12,21 @@ refs.form.addEventListener('submit', onFormSubmit);
 refs.decrementBtn.addEventListener('click', onDecrementBtnClick);
 refs.incrementBtn.addEventListener('click', onIncrementBtnClick);
 refs.gallery.addEventListener('click', onCardClick);
+refs.pagination.addEventListener('click', onPaginationBtnClick);
 
 const search = new Search();
 const storage = new Storage();
 
+function onPaginationBtnClick(e) {
+  console.log(e.target.textContent);
+}
+
 async function renderList() {
   console.log(search);
   const data = await search.fetchByUrl();
+  console.log(search);
   const markup = await createMarkupList(data);
+
   return await uppendMarkapGalleryList(markup);
 }
 
@@ -28,6 +36,7 @@ function onClickBtnHome() {
   refs.gallery.classList.remove('visually-hidden');
   refs.libary.classList.add('visually-hidden');
   search.url = search.homeUrl;
+
   renderList();
 }
 

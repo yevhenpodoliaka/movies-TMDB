@@ -1,5 +1,6 @@
 export default {
   gallery: document.querySelector('.gallery'),
+  pagination: document.querySelector('.pagination'),
   libary: document.querySelector('.libary'),
   homeBtn: document.querySelector('.header__btn-home'),
   libaryBtn: document.querySelector('.header__btn-libary'),
