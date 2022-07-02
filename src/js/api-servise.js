@@ -28,6 +28,9 @@ class Search {
     const response = await fetch(this.url + `&page=${this.currentPage}`);
     const data = await response.json();
     this.totalPage = data.total_pages;
+    console.log(this.currentPage);
+    console.log(this.totalPage);
+    // this.showPageNumber();
     this.renderPaginationBtns();
 
     return data.results;
@@ -35,11 +38,15 @@ class Search {
 
   async fetchByWord(word) {
     this.url = BASE_URL + 'search/movie' + API_KEY + `&query=${word}`;
-    console.log(this);
+
     const response = await fetch(this.url + `&page=${this.currentPage}`);
     const data = await response.json();
     this.totalPage = data.total_pages;
+    console.log(this.currentPage);
+    console.log(this.totalPage);
+    // this.showPageNumber();
     this.renderPaginationBtns();
+
     return data.results;
   }
 
@@ -56,6 +63,11 @@ class Search {
     const response = await fetch(BASE_URL + `movie/${movieId}` + API_KEY);
     const data = await response.json();
     return data;
+  }
+
+  showPageNumber() {
+    refs.currentPageNumber.textContent = this.currentPage;
+    refs.totalpageNumber.textContent = this.totalPage;
   }
 
   renderPaginationBtns() {

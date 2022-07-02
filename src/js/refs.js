@@ -11,4 +11,7 @@ export default {
   backdrop: document.querySelector('.backdrop'),
   addToQueue: null,
   addWached: null,
+  pageNumberBox: document.querySelector('.page-number-box'),
+  currentPageNumber: document.querySelector('.current-page-namber'),
+  totalpageNumber: document.querySelector('.total-page-number'),
 };
