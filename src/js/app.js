@@ -3,7 +3,6 @@ import renderModal from './modal';
 import refs from './refs';
 import Search from './api-servise';
 import Storage from './local-storage';
-import renderPaginationBtns from './pagination';
 
 window.addEventListener('DOMContentLoaded', renderList);
 refs.homeBtn.addEventListener('click', onClickBtnHome);
@@ -17,16 +16,18 @@ refs.pagination.addEventListener('click', onPaginationBtnClick);
 const search = new Search();
 const storage = new Storage();
 
-function onPaginationBtnClick(e) {
-  console.log(e.target.textContent);
+async function onPaginationBtnClick(e) {
+  search.currentPage = e.target.textContent;
+  await renderList();
+  window.scroll({
+    top: 1,
+    behavior: 'smooth',
+  });
 }
 
 async function renderList() {
-  console.log(search);
   const data = await search.fetchByUrl();
-  console.log(search);
   const markup = await createMarkupList(data);
-
   return await uppendMarkapGalleryList(markup);
 }
 
@@ -36,7 +37,6 @@ function onClickBtnHome() {
   refs.gallery.classList.remove('visually-hidden');
   refs.libary.classList.add('visually-hidden');
   search.url = search.homeUrl;
-
   renderList();
 }
 

@@ -1,22 +1,22 @@
-// import refs from './refs';
-// import Search from './api-servise';
-// const searchApi = new Search();
-// const TOTAL_PAGE = searchApi.totalPage;
-// const CURRENT_PAGE = searchApi.currentPage;
-
-// function renderPaginationBtns() {
-//   refs.pagination.innerHTML = `<button>first Page</button>
-//   <button>${CURRENT_PAGE}</button>
-//   <button>${CURRENT_PAGE + 1}</button>
-//   <button>${CURRENT_PAGE + 2}</button>
-//   <button>${CURRENT_PAGE + 3}</button>
-//   <button>${CURRENT_PAGE + 4}</button>
-//   <button>${CURRENT_PAGE + 5}</button>
-//   <button>${CURRENT_PAGE + 6}</button>
-//   <button>${CURRENT_PAGE + 7}</button>
-//   <button>next</button>
-//   <button>${TOTAL_PAGE}</button>`;
+// class Pagination {
+//   constructor() {
+//     this.currentPage = 1;
+//     this.totalPage = null;
+//   }
+//   render() {
+//     refs.pagination.innerHTML = `
+//   <button>${this.currentPage + 1}</button>
+//   <button>${this.currentPage + 2}</button>
+//   <button>${this.currentPage + 3}</button>
+//   <button>${this.currentPage + 4}</button>
+//   <button>${this.currentPage + 5}</button>
+//   <button>${this.currentPage + 6}</button>
+//   <button>${this.currentPage + 7}</button>
+//   <button>${this.currentPage}</button>
+//   <button>${this.totalPage}</button>`;
+//   }
 // }
-// // console.log([...new Array(this.totalPage).keys()]);
-
-// export default renderPaginationBtns;
+// if (totalPage < 20) {
+// }
+// if (totalPage > 20 && totalPage < 100) {
+// }

@@ -1,4 +1,5 @@
 import refs from './refs';
+import { renderPaginationBtns } from './pagination';
 const BASE_URL = 'https://api.themoviedb.org/3/';
 const API_KEY = '?api_key=b6201d5209ec246f483ea16253167a90';
 const IMG_URL = 'https://image.tmdb.org/t/p/w500/';
@@ -37,6 +38,8 @@ class Search {
     console.log(this);
     const response = await fetch(this.url + `&page=${this.currentPage}`);
     const data = await response.json();
+    this.totalPage = data.total_pages;
+    this.renderPaginationBtns();
     return data.results;
   }
 
@@ -57,15 +60,15 @@ class Search {
 
   renderPaginationBtns() {
     refs.pagination.innerHTML = `
-  <button>${this.currentPage}</button>
-  <button>${this.currentPage + 1}</button>
-  <button>${this.currentPage + 2}</button>
-  <button>${this.currentPage + 3}</button>
-  <button>${this.currentPage + 4}</button>
-  <button>${this.currentPage + 5}</button>
-  <button>${this.currentPage + 6}</button>
-  <button>${this.currentPage + 7}</button>
-  <button>${this.totalPage}</button>`;
+  <button class="current-page">${this.currentPage}</button>
+  <button>${+this.currentPage + 1}</button>
+  <button>${+this.currentPage + 2}</button>
+  <button>${+this.currentPage + 3}</button>
+  <button>${+this.currentPage + 4}</button>
+  <button>${+this.currentPage + 5}</button>
+  <button>${+this.currentPage + 6}</button>
+  <button>${+this.currentPage + 7}</button>
+  <button>${+this.totalPage}</button>`;
   }
 }
 
