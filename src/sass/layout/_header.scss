@@ -1,18 +1,17 @@
 @import '~node_modules/modern-normalize/modern-normalize.css';
 .header {
   height: 180px;
-  background-color: rgb(51, 99, 195);
+  background-color: var(--secondary-color);
   padding: 32px;
 }
 .header__logo{
   font-size: 44px;
-  color: white;
+  color: var(---black-color);
 }
 .header__nav{
   display: flex;
   align-items: center;
-  justify-content: space-around;
-  margin: 0 auto;
+  justify-content: flex-end;
   margin-bottom: 20px;
 }
 .form {

@@ -1,5 +1,4 @@
 import refs from './refs';
-import { renderPaginationBtns } from './pagination';
 const BASE_URL = 'https://api.themoviedb.org/3/';
 const API_KEY = '?api_key=b6201d5209ec246f483ea16253167a90';
 const IMG_URL = 'https://image.tmdb.org/t/p/w500/';
@@ -7,14 +6,6 @@ const URL_TRAND = BASE_URL + 'trending/all/day' + API_KEY;
 const URL_POPULAR =
   BASE_URL + 'discover/movie' + API_KEY + '&sort_by=popularity.desc';
 
-// async function fetchGenereList() {
-//   const response = await fetch(
-//     BASE_URL + 'genre/movie/list' + API_KEY + '&language=en-US'
-//   );
-//   const data = await response.json();
-//   return data;
-// }
-// fetchGenereList().then(console.log);
 class Search {
   constructor() {
     this.homeUrl = URL_TRAND;
@@ -30,7 +21,6 @@ class Search {
     this.totalPage = data.total_pages;
     console.log(this.currentPage);
     console.log(this.totalPage);
-    // this.showPageNumber();
     this.renderPaginationBtns();
 
     return data.results;
@@ -44,7 +34,6 @@ class Search {
     this.totalPage = data.total_pages;
     console.log(this.currentPage);
     console.log(this.totalPage);
-    // this.showPageNumber();
     this.renderPaginationBtns();
 
     return data.results;
@@ -65,11 +54,6 @@ class Search {
     return data;
   }
 
-  showPageNumber() {
-    refs.currentPageNumber.textContent = this.currentPage;
-    refs.totalpageNumber.textContent = this.totalPage;
-  }
-
   renderPaginationBtns() {
     refs.pagination.innerHTML = `
   <button class="current-page">${this.currentPage}</button>
@@ -82,6 +66,15 @@ class Search {
   <button>${+this.currentPage + 7}</button>
   <button>${+this.totalPage}</button>`;
   }
+
+  // async function fetchGenereList() {
+  //   const response = await fetch(
+  //     BASE_URL + 'genre/movie/list' + API_KEY + '&language=en-US'
+  //   );
+  //   const data = await response.json();
+  //   return data;
+  // }
+  // fetchGenereList().then(console.log);
 }
 
 export default Search;
