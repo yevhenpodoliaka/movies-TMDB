@@ -2,48 +2,80 @@ import refs from './refs';
 import { search } from './app';
 import { renderList } from './app';
 
-window.addEventListener('DOMContentLoaded', initPagination);
+let current = 1;
+let total = 1000;
 
+refs.pagination.addEventListener('click', onPaginationBtnClick);
+refs.pagination.addEventListener('click', onNextPageClick);
+refs.pagination.addEventListener('click', onPrevPageClick);
+refs.paginationLastPage.textContent = total;
+
+// показує/приховує кнопки: prevPage/nextPage
 function initPagination() {
-  refs.pagination.addEventListener('click', onPaginationBtnClick);
-  refs.paginationLastPage.textContent = search.totalPage;
-}
-
-async function onPaginationBtnClick(e) {
-  refs.paginationLastPage.textContent = search.totalPage;
-  Number(search.currentPage) > 7
+  current >= 7
     ? refs.decrementBtn.classList.remove('visually-hidden')
     : refs.decrementBtn.classList.add('visually-hidden');
 
-  // перелистування сторінки кнопок
+  current > 994
+    ? refs.incrementBtn.classList.add('visually-hidden')
+    : refs.incrementBtn.classList.remove('visually-hidden');
 
+  refs.paginationBtn.forEach(e => {
+    Number(e.textContent) === current
+      ? e.classList.add('current-page')
+      : e.classList.remove('current-page');
+  });
+}
+
+// змінює значення кнопок на +6
+function nextPagelist() {
+  refs.paginationBtn.forEach(element => {
+    element.textContent = Number(element.textContent) + 6;
+  });
+
+  renderList();
+
+  window.scroll({
+    top: 0,
+    behavior: 'smooth',
+  });
+}
+
+// змінює значення кнопок на -6
+function prewPageList() {
+  refs.paginationBtn.forEach(element => {
+    element.textContent = Number(element.textContent) - 6;
+  });
+  renderList();
+  window.scroll({
+    top: 0,
+    behavior: 'smooth',
+  });
+}
+
+function onNextPageClick(e) {
   if (e.target.classList.contains('next-btn')) {
-    search.currentPage += 6;
-    refs.paginationBtn.forEach(element => {
-      element.textContent = Number(element.textContent) + 6;
-    });
-    await renderList();
-    window.scroll({
-      top: 0,
-      behavior: 'smooth',
-    });
+    current += 6;
+    search.currentPage = current;
+    nextPagelist();
+    initPagination();
   }
-
-  if (e.target.classList.contains('prew-btn')) {
-    search.currentPage -= 6;
-    refs.paginationBtn.forEach(element => {
-      element.textContent = Number(element.textContent) - 6;
-    });
-    await renderList();
-    window.scroll({
-      top: 0,
-      behavior: 'smooth',
-    });
+}
+function onPrevPageClick(e) {
+  if (e.target.classList.contains('prev-btn')) {
+    current -= 6;
+    search.currentPage = current;
+    prewPageList();
+    initPagination();
   }
+}
 
+function onPaginationBtnClick(e) {
   if (e.target.classList.contains('pangination__btn')) {
     search.currentPage = Number(e.target.textContent);
-    await renderList();
+    current = Number(e.target.textContent);
+    initPagination();
+    renderList();
     window.scroll({
       top: 0,
       behavior: 'smooth',

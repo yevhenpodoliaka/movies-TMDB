@@ -4,7 +4,7 @@ export default {
   paginationBtn: document.querySelectorAll('.pangination__btn'),
   paginationLastPage: document.querySelector('.last-page'),
 
-  decrementBtn: document.querySelector('.prew-btn'),
+  decrementBtn: document.querySelector('.prev-btn'),
   incrementBtn: document.querySelector('.next-btn'),
 
   homeBtn: document.querySelector('.header__btn-home'),
