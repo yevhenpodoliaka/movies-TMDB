@@ -25,7 +25,7 @@
 
   @include tablet {
     max-width: 704px;
-    height: 522px;
+    max-height: 522px;
     padding: 40px 64px 40px 44px;
     display: flex;
   }

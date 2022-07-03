@@ -1,16 +1,20 @@
 import refs from './refs';
 import { search } from './app';
 import { renderList } from './app';
+
 window.addEventListener('DOMContentLoaded', initPagination);
 
 function initPagination() {
-  console.log(refs.paginationLastPage);
   refs.pagination.addEventListener('click', onPaginationBtnClick);
   refs.paginationLastPage.textContent = search.totalPage;
 }
 
 async function onPaginationBtnClick(e) {
   refs.paginationLastPage.textContent = search.totalPage;
+  Number(search.currentPage) > 7
+    ? refs.decrementBtn.classList.remove('visually-hidden')
+    : refs.decrementBtn.classList.add('visually-hidden');
+
   // перелистування сторінки кнопок
 
   if (e.target.classList.contains('next-btn')) {
@@ -45,5 +49,4 @@ async function onPaginationBtnClick(e) {
       behavior: 'smooth',
     });
   }
-
-
+}
