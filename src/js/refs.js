@@ -1,6 +1,9 @@
 export default {
   gallery: document.querySelector('.gallery'),
   pagination: document.querySelector('.pagination'),
+  paginationBtn: document.querySelectorAll('.pangination__btn'),
+  paginationLastPage: document.querySelector('.last-page'),
+
   decrementBtn: document.querySelector('.prew-btn'),
   incrementBtn: document.querySelector('.next-btn'),
 

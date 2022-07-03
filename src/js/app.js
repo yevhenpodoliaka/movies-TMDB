@@ -2,29 +2,21 @@ import createMarkupList from './create-markup-list';
 import renderModal from './modal';
 import refs from './refs';
 import Search from './api-servise';
+import './pagination';
 
 window.addEventListener('DOMContentLoaded', renderList);
 refs.homeBtn.addEventListener('click', onClickBtnHome);
 refs.form.addEventListener('submit', onFormSubmit);
-refs.decrementBtn.addEventListener('click', onDecrementBtnClick);
-refs.incrementBtn.addEventListener('click', onIncrementBtnClick);
+
 refs.gallery.addEventListener('click', onCardClick);
-refs.pagination.addEventListener('click', onPaginationBtnClick);
 
 const search = new Search();
+export { search };
 
 function onClickBtnHome() {
   search.currentPage = 1;
   search.url = search.homeUrl;
   renderList();
-}
-async function onPaginationBtnClick(e) {
-  search.currentPage = e.target.textContent;
-  await renderList();
-  window.scroll({
-    top: 1,
-    behavior: 'smooth',
-  });
 }
 
 async function renderList() {
@@ -32,7 +24,7 @@ async function renderList() {
   const markup = await createMarkupList(data);
   return await uppendMarkapGalleryList(markup);
 }
-
+export { renderList };
 async function onFormSubmit(e) {
   e.preventDefault();
   search.currentPage = 1;
@@ -45,23 +37,6 @@ async function onFormSubmit(e) {
   }
   const markup = await createMarkupList(data);
   return await uppendMarkapGalleryList(markup);
-}
-
-async function onDecrementBtnClick() {
-  await search.decrementPage();
-  await renderList();
-  window.scroll({
-    top: 0,
-    behavior: 'smooth',
-  });
-}
-async function onIncrementBtnClick() {
-  await search.incrementPage();
-  await renderList();
-  window.scroll({
-    top: 1,
-    behavior: 'smooth',
-  });
 }
 
 function uppendMarkapGalleryList(string) {

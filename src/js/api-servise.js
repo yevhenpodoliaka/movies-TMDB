@@ -21,7 +21,7 @@ class Search {
     this.totalPage = data.total_pages;
     console.log(this.currentPage);
     console.log(this.totalPage);
-    this.renderPaginationBtns();
+    // this.renderPaginationBtns();
 
     return data.results;
   }
@@ -34,7 +34,7 @@ class Search {
     this.totalPage = data.total_pages;
     console.log(this.currentPage);
     console.log(this.totalPage);
-    this.renderPaginationBtns();
+    // this.renderPaginationBtns();
 
     return data.results;
   }
@@ -54,18 +54,18 @@ class Search {
     return data;
   }
 
-  renderPaginationBtns() {
-    refs.pagination.innerHTML = `
-  <button class="current-page">${this.currentPage}</button>
-  <button>${+this.currentPage + 1}</button>
-  <button>${+this.currentPage + 2}</button>
-  <button>${+this.currentPage + 3}</button>
-  <button>${+this.currentPage + 4}</button>
-  <button>${+this.currentPage + 5}</button>
-  <button>${+this.currentPage + 6}</button>
-  <button>${+this.currentPage + 7}</button>
-  <button>${+this.totalPage}</button>`;
-  }
+  // renderPaginationBtns() {
+  //   refs.pagination.innerHTML = `
+  // <button class="current-page">${this.currentPage}</button>
+  // <button>${+this.currentPage + 1}</button>
+  // <button>${+this.currentPage + 2}</button>
+  // <button>${+this.currentPage + 3}</button>
+  // <button>${+this.currentPage + 4}</button>
+  // <button>${+this.currentPage + 5}</button>
+  // <button>${+this.currentPage + 6}</button>
+  // <button>${+this.currentPage + 7}</button>
+  // <button>${+this.totalPage}</button>`;
+  // }
 
   // async function fetchGenereList() {
   //   const response = await fetch(
