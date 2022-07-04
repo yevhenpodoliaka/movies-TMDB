@@ -2,7 +2,9 @@ import createMarkupList from './create-markup-list';
 import renderModal from './modal';
 import refs from './refs';
 import Search from './api-servise';
+// import './pagination-history';
 import './pagination';
+import pagination from './service-pagination';
 
 window.addEventListener('DOMContentLoaded', renderList);
 refs.homeBtn.addEventListener('click', onClickBtnHome);
