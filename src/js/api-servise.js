@@ -1,4 +1,5 @@
 import refs from './refs';
+
 const BASE_URL = 'https://api.themoviedb.org/3/';
 const API_KEY = '?api_key=b6201d5209ec246f483ea16253167a90';
 const IMG_URL = 'https://image.tmdb.org/t/p/w500/';

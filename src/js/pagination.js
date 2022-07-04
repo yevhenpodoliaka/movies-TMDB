@@ -8,6 +8,7 @@ let total = 1000;
 refs.pagination.addEventListener('click', onPaginationBtnClick);
 refs.pagination.addEventListener('click', onNextPageClick);
 refs.pagination.addEventListener('click', onPrevPageClick);
+refs.pagination.addEventListener('click', onLastBtnClick);
 refs.paginationLastPage.textContent = total;
 
 // показує/приховує кнопки: prevPage/nextPage
@@ -27,49 +28,57 @@ function initPagination() {
   });
 }
 
-// змінює значення кнопок на +6
-function nextPagelist() {
-  refs.paginationBtn.forEach(element => {
-    element.textContent = Number(element.textContent) + 6;
-  });
+function onPrevPageClick(e) {
+  if (e.target.classList.contains('prev-btn')) {
+    current -= 6;
+    search.currentPage = current;
+    refs.paginationBtn.forEach(element => {
+      element.textContent = Number(element.textContent) - 6;
+    });
+    renderList();
+    window.scroll({
+      top: 0,
+      behavior: 'smooth',
+    });
 
-  renderList();
-
-  window.scroll({
-    top: 0,
-    behavior: 'smooth',
-  });
-}
-
-// змінює значення кнопок на -6
-function prewPageList() {
-  refs.paginationBtn.forEach(element => {
-    element.textContent = Number(element.textContent) - 6;
-  });
-  renderList();
-  window.scroll({
-    top: 0,
-    behavior: 'smooth',
-  });
+    initPagination();
+  }
 }
 
 function onNextPageClick(e) {
   if (e.target.classList.contains('next-btn')) {
     current += 6;
     search.currentPage = current;
-    nextPagelist();
-    initPagination();
-  }
-}
-function onPrevPageClick(e) {
-  if (e.target.classList.contains('prev-btn')) {
-    current -= 6;
-    search.currentPage = current;
-    prewPageList();
-    initPagination();
-  }
-}
+    refs.paginationBtn.forEach(element => {
+      element.textContent = Number(element.textContent) + 6;
+    });
 
+    renderList();
+
+    window.scroll({
+      top: 0,
+      behavior: 'smooth',
+    });
+
+    initPagination();
+  }
+}
+function onLastBtnClick(e) {
+  if (e.target.classList.contains('last-page')) {
+    current = total;
+    search.currentPage = current;
+    let num = total - 7;
+    refs.paginationBtn.forEach(element => {
+      element.textContent = num += 1;
+    });
+    initPagination();
+    renderList();
+    window.scroll({
+      top: 0,
+      behavior: 'smooth',
+    });
+  }
+}
 function onPaginationBtnClick(e) {
   if (e.target.classList.contains('pangination__btn')) {
     search.currentPage = Number(e.target.textContent);
