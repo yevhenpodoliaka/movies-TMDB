@@ -1,11 +1,11 @@
 export default {
   gallery: document.querySelector('.gallery'),
   pagination: document.querySelector('.pagination'),
-  paginationBtn: document.querySelectorAll('.pangination__btn'),
-  paginationLastPage: document.querySelector('.last-page'),
+  // paginationBtn: document.querySelector('.pangination__btn'),
+  // paginationLastPage: document.querySelector('.last-page'),
 
-  decrementBtn: document.querySelector('.prev-btn'),
-  incrementBtn: document.querySelector('.next-btn'),
+  // decrementBtn: document.querySelector('.prev-btn'),
+  // incrementBtn: document.querySelector('.next-btn'),
 
   homeBtn: document.querySelector('.header__btn-home'),
   form: document.querySelector('.form'),

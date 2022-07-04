@@ -3,8 +3,8 @@ import renderModal from './modal';
 import refs from './refs';
 import Search from './api-servise';
 import './pagination-history';
+import { showPagination } from './pagination-history';
 // import './pagination';
-// import pagination from './service-pagination';
 
 window.addEventListener('DOMContentLoaded', renderList);
 refs.homeBtn.addEventListener('click', onClickBtnHome);
@@ -24,6 +24,8 @@ function onClickBtnHome() {
 async function renderList() {
   const data = await search.fetchByUrl();
   const markup = await createMarkupList(data);
+
+  showPagination(search.currentPage, search.totalPage);
   return await uppendMarkapGalleryList(markup);
 }
 export { renderList };
