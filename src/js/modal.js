@@ -1,10 +1,17 @@
 import refs from './refs';
 import Storage from './local-storage';
 import { api } from './app';
+import createModalMarkup from './markup-modal';
 const IMG_URL = 'https://image.tmdb.org/t/p/w500/';
 const storage = new Storage();
-async function uppendModalMarkap(markup) {
-  refs.backdrop.innerHTML = markup;
+
+refs.gallery.addEventListener('click', onCardClick);
+
+async function onCardClick(e) {
+  const filmId = e.target.getAttribute('id');
+  if (e.target.classList.contains('gallery__item')) {
+    await renderModal(filmId);
+  }
 }
 
 async function renderModal(filmId) {
@@ -22,59 +29,10 @@ async function renderModal(filmId) {
   }
   openModal();
 }
-{
+async function uppendModalMarkap(markup) {
+  refs.backdrop.innerHTML = markup;
 }
-function createModalMarkup({
-  poster_path,
-  budget,
-  genres = [],
-  homepage,
-  vote_count,
-  vote_average,
-  original_title,
-  popularity,
-  title,
-  overview,
-}) {
-  const genersList = genres.map(element => element.name);
-  console.log(genersList);
-  return `<div class="modal">
-    <button class="modal__close" data-action="close-modal">&#10006;</button>
- 
-      <img class="modal__img" src=${IMG_URL}${poster_path} alt="cinema" />
-  
-    <div class="modal__description-wrap">
-      <h2 class="modal__title">${title}</h2>
-      <table class="modal__info">
-  <tr>
-    <td class="modal__info-key">Vote/votes</td>
-    <td "modal__info-value"><span class="modal__info-value--accent">${vote_average}</span>/<span     class="modal__info-key--accent">${vote_count}</span></td>
-  </tr>
-  <tr>
-    <td class="modal__info-key">Popularity</td>
-    <td "modal__info-value">${popularity}</td>
-  </tr>
-  <tr>
-    <td class="modal__info-key">Original Title</td>
-    <td "modal__info-value">${original_title}</td>
-  </tr>
-  <tr>
-    <td class="modal__info-key">Genre</td>
-    <td "modal__info-value">${genersList}</td>
-  </tr>
-</table>
-    
-      <h3 class="modal__about-title">About</h3>
-      <p class="modal__about-text">
-        ${overview}
-      </p>
-      <div class="modal__option">
-        <button class="btn-add-wached" data-action="add-wached">add to Watched</button>
-        <button class="btn-add-queue" data-action="add-queue">add to queue</button>
-      </div>
-    </div>
-  </div>`;
-}
+
 function onCloseEsc(e) {
   if (e.code === 'Escape') {
     closeModal();
@@ -121,28 +79,3 @@ function closeModal() {
   refs.backdrop.removeEventListener('click', onBtnAddToQueueClick);
   refs.backdrop.removeEventListener('click', onBtnAddWachedClick);
 }
-export default renderModal;
-// backdrop_path: "/egoyMDLqCxzjnSrWOz50uLlJWmD.jpg"
-// belongs_to_collection: {id: 720879, name: "Sonic the Hedgehog Collection", poster_path: "/rEC1pkQ1UbX7USRkVIrt2Nk7hlC.jpg",…}
-// budget: 110000000
-// genres: [{id: 28, name: "Action"}, {id: 12, name: "Adventure"}, {id: 10751, name: "Family"},…]
-// homepage: "https://www.sonicthehedgehogmovie.com"
-// id: 675353
-// imdb_id: "tt12412888"
-// original_language: "en"
-// original_title: "Sonic the Hedgehog 2"
-// overview: "After settling in Green Hills, Sonic is eager to prove he has what it takes to be a true hero. His test comes when Dr. Robotnik returns, this time with a new partner, Knuckles, in search for an emerald that has the power to destroy civilizations. Sonic teams up with his own sidekick, Tails, and together they embark on a globe-trotting journey to find the emerald before it falls into the wrong hands."
-// popularity: 3201.969
-// poster_path: "/6DrHO1jr3qVrViUO6s6kFiAGM7.jpg"
-// production_companies: [{id: 4, logo_path: "/gz66EfNoYPqHTYI4q9UEN4CbHRc.png", name: "Paramount", origin_country: "US"},…]
-// production_countries: [{iso_3166_1: "JP", name: "Japan"}, {iso_3166_1: "US", name: "United States of America"}]
-// release_date: "2022-03-30"
-// revenue: 393000000
-// runtime: 122
-// spoken_languages: [{english_name: "English", iso_639_1: "en", name: "English"}]
-// status: "Released"
-// tagline: "Welcome to the next level."
-// title: "Sonic the Hedgehog 2"
-// video: false
-// vote_average: 7.7
-// vote_count: 2274
