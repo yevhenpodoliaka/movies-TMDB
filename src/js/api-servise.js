@@ -12,32 +12,27 @@ class Search {
     this.homeUrl = URL_TRAND;
     this.url = URL_TRAND;
     this.currentPage = 1;
-    this.currentId = null;
     this.totalPage = null;
   }
 
-  async fetchByUrl() {
-    const response = await fetch(this.url + `&page=${this.currentPage}`);
+  async fetchByUrl(page) {
+    const url = new URL(this.url);
+    url.searchParams.set('page', page);
+    const response = await fetch(this.url);
     const data = await response.json();
     this.totalPage = data.total_pages;
-    console.log(this.currentPage);
-    console.log(this.totalPage);
-    // this.renderPaginationBtns();
-
-    return data.results;
+    this.currentlPage = data.page;
+    return data;
   }
 
   async fetchByWord(word) {
-    this.url = BASE_URL + 'search/movie' + API_KEY + `&query=${word}`;
-
-    const response = await fetch(this.url + `&page=${this.currentPage}`);
+    const url = new URL(BASE_URL + 'search/movie' + API_KEY);
+    url.searchParams.set('page', 1);
+    url.searchParams.set('query', word);
+    const response = await fetch(url);
     const data = await response.json();
-    this.totalPage = data.total_pages;
-    console.log(this.currentPage);
-    console.log(this.totalPage);
-    // this.renderPaginationBtns();
-
-    return data.results;
+    console.log(data);
+    return data;
   }
 
   incrementPage() {
@@ -54,28 +49,6 @@ class Search {
     const data = await response.json();
     return data;
   }
-
-  // renderPaginationBtns() {
-  //   refs.pagination.innerHTML = `
-  // <button class="current-page">${this.currentPage}</button>
-  // <button>${+this.currentPage + 1}</button>
-  // <button>${+this.currentPage + 2}</button>
-  // <button>${+this.currentPage + 3}</button>
-  // <button>${+this.currentPage + 4}</button>
-  // <button>${+this.currentPage + 5}</button>
-  // <button>${+this.currentPage + 6}</button>
-  // <button>${+this.currentPage + 7}</button>
-  // <button>${+this.totalPage}</button>`;
-  // }
-
-  // async function fetchGenereList() {
-  //   const response = await fetch(
-  //     BASE_URL + 'genre/movie/list' + API_KEY + '&language=en-US'
-  //   );
-  //   const data = await response.json();
-  //   return data;
-  // }
-  // fetchGenereList().then(console.log);
 }
 
 export default Search;
