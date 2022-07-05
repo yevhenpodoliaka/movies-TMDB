@@ -1,19 +1,15 @@
-import Search from './api-servise';
-import Storage from './local-storage';
 import refs from './refs';
-import defaultImg from '../images/cinema.jpg';
+import Storage from './local-storage';
+import { api } from './app';
 const IMG_URL = 'https://image.tmdb.org/t/p/w500/';
-
-const search = new Search();
 const storage = new Storage();
-
 async function uppendModalMarkap(markup) {
   refs.backdrop.innerHTML = markup;
 }
 
 async function renderModal(filmId) {
   refs.backdrop.setAttribute('id', filmId);
-  const data = await search.fetchById(filmId);
+  const data = await api.fetchMovieDetails(filmId);
   const markup = await createModalMarkup(data);
   await uppendModalMarkap(markup);
   refs.addToQueue = document.querySelector('.btn-add-queue');
