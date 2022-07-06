@@ -1,6 +1,4 @@
 const IMG_URL = 'https://image.tmdb.org/t/p/w500/';
-import Storage from './local-storage';
-const storage = new Storage();
 
 function createMarkupList(arr) {
   return arr
@@ -11,7 +9,7 @@ function createMarkupList(arr) {
         poster_path,
         release_date,
         vote_average,
-      }) => `<li class="gallery__item" id="${id}">
+      }) => `<li class="gallery__item" data-id="${id}">
       <div class="info-wrap">
     <img src= ${IMG_URL}${poster_path} alt="" class="poster">
     <p class="title">${title}</p>

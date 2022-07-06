@@ -1,4 +1,4 @@
-import refs from './refs';
+import refs from '../refs';
 import createMarkupPagination from './markup-pagination';
 
 function initPagination(currentPage, totalPage) {

@@ -1,26 +1,17 @@
-import refs from './refs';
-import createMarkupList from './create-markup-list';
-import renderModal from './modal';
-import ApiService from './api-servise';
-import { showPagination } from './panigation';
+import startMarkup from './templates/startMarkup';
+import renderGallery from './renderGallery';
+import ApiService from './utils/api-servise';
+import onCardClick from './handler/modalCardHandler';
+
 const api = new ApiService();
-export { api };
 
-window.addEventListener('DOMContentLoaded', renderList);
-refs.homeBtn.addEventListener('click', onClickBtnHome);
+const containerEl = document.querySelector('.container');
 
-function uppendMarkapGalleryList(string) {
-  refs.gallery.innerHTML = string;
-}
-
-async function renderList() {
-  const data = await api.fetchTrending();
-  const markup = await createMarkupList(data.results);
-  await uppendMarkapGalleryList(markup);
-  showPagination(data.page, data.total_pages);
-}
-
-function onClickBtnHome() {
-  api.resetPage();
-  renderList();
+window.addEventListener('DOMContentLoaded', appInit);
+function appInit() {
+  containerEl.innerHTML = startMarkup();
+  renderGallery();
+  const galleryList = document
+    .querySelector('.gallery')
+    .addEventListener('click', onCardClick);
 }

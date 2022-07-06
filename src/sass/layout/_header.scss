@@ -1,17 +1,13 @@
 @import '~node_modules/modern-normalize/modern-normalize.css';
 .header {
   height: 180px;
-  background-color: var(--secondary-color);
   padding: 32px;
 }
-.header__logo{
-  font-size: 44px;
-  color: var(---black-color);
-}
 .header__nav{
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: flex-end;
+  gap: 15px;
   margin-bottom: 20px;
 }
 .form {
@@ -25,11 +21,7 @@
       background-color: transparent;
       border: none;
       border-bottom: 1px solid black;
-      color: aliceblue;
   
-      &::placeholder {
-        color: rgba(255, 255, 255, 0.85);
-      }
     }
 }
 

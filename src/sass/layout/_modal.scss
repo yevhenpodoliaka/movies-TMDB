@@ -153,7 +153,12 @@
     }
   }
 }
+.isActive {
+  background-color: #ff6b01;
+  color: white;
+  border: transparent;
 
+}
 .modal__close {
   position: absolute;
   border: transparent;
