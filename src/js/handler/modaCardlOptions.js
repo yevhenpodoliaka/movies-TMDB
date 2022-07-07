@@ -1,4 +1,5 @@
 export { openModal };
+import onBtnPlayClick from './player';
 import {
   onBtnAddToQueueClick,
   onBtnAddWachedClick,
@@ -12,6 +13,7 @@ function openModal() {
   backdropEl.addEventListener('click', onBtnCloseModalClick);
   backdropEl.addEventListener('click', onBtnAddToQueueClick);
   backdropEl.addEventListener('click', onBtnAddWachedClick);
+  backdropEl.addEventListener('click', onBtnPlayClick);
 }
 // //додає is.hidden на refs.backdrop та знімає слухачів
 function closeModal() {
@@ -21,6 +23,7 @@ function closeModal() {
   backdropEl.removeEventListener('click', onBtnCloseModalClick);
   backdropEl.removeEventListener('click', onBtnAddToQueueClick);
   backdropEl.removeEventListener('click', onBtnAddWachedClick);
+  backdropEl.removeEventListener('click', onBtnPlayClick);
 }
 
 // // закриття по Esc

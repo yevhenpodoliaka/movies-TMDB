@@ -1,7 +1,7 @@
 const IMG_URL = 'https://image.tmdb.org/t/p/w500/';
 function createModalMarkup({
   poster_path,
-  budget,
+  videos,
   genres = [],
   homepage,
   vote_count,
@@ -11,13 +11,13 @@ function createModalMarkup({
   title,
   overview,
 }) {
+  const videoKey = videos.results[0].key;
   const genersList = genres.map(element => element.name);
   console.log(genersList);
   return `<div class="modal">
     <button class="modal__close" data-action="close-modal">&#10006;</button>
- 
-      <img class="modal__img" src=${IMG_URL}${poster_path} alt="cinema" />
-  
+ <img class="modal__img" src=${IMG_URL}${poster_path} alt="cinema" />
+    
     <div class="modal__description-wrap">
       <h2 class="modal__title">${title}</h2>
       <table class="modal__info">
@@ -51,3 +51,18 @@ function createModalMarkup({
   </div>`;
 }
 export default createModalMarkup;
+
+{
+  /* <div class="video">
+  <button class="modal__btn-play">play</button>
+  <iframe
+    class="modal__iframe
+  src="
+    https:title="YouTube video player" //www.youtube.com/embed/${videoKey}"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen
+  ></iframe>
+  ;
+</div>; */
+}
