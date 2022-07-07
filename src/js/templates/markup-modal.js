@@ -15,18 +15,17 @@ function createModalMarkup({
   const genersList = genres.map(element => element.name);
   console.log(genersList);
   return `<div class="modal">
-    <div class="video-wrap visually-hidden">
-    <iframe src="https://www.youtube.com/embed/${videoKey}"
-  frameborder = '0';
-title = 'YouTube video player';
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowfullscreen></iframe>
-  </div>
-
   <button class="modal__close" data-action="close-modal">&#10006;</button>
   <div class="modal__card">
-   <button class="modal__btn-play">play</button>
+  <div class="modal__content">
+    <iframe class="video-frame visually-hidden" src="https://www.youtube.com/embed/${videoKey}"
+    frameborder = '0';
+    title = 'YouTube video player';
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen></iframe>
+    <button class="modal__btn-play">play</button>
     <img class="modal__img" src="${IMG_URL}${poster_path}" alt="cinema" />
+  </div>
 
     <div class="modal__description-wrap">
       <h2 class="modal__title">${title}</h2>

@@ -24,7 +24,7 @@ function closeModal() {
   backdropEl.removeEventListener('click', onBtnAddToQueueClick);
   backdropEl.removeEventListener('click', onBtnAddWachedClick);
   backdropEl.removeEventListener('click', onBtnPlayClick);
-  backdropEl.innerHTML = '';
+  // backdropEl.innerHTML = '';
 }
 
 // // закриття по Esc
