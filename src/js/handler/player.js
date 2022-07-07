@@ -1,8 +1,21 @@
-export default function onBtnPlayClick(e) {
-  const imgEl = document.querySelector('.modal__img');
-  const iframeEL = document.querySelector('.modal__iframe');
+export { onBtnPlayClick, onBtnStopplayer };
+
+function onBtnPlayClick(e) {
+  const modalCardEl = document.querySelector('.modal__card');
+  const videoWrapEl = document.querySelector('.video-wrap');
   if (e.target.classList.contains('modal__btn-play')) {
-    imgEl.style.opacity = 0;
+    modalCardEl.classList.toggle('visually-hidden');
+    videoWrapEl.classList.toggle('visually-hidden');
     console.log('on btn player click');
+  }
+}
+function onBtnStopplayer() {
+  const modalCardEl = document.querySelector('.modal__card');
+  const videoWrapEl = document.querySelector('.video-wrap');
+  if (e.target.classList.contains('modal__btn-stop')) {
+    videoWrapEl.classList.toggle('visually-hidden');
+    modalCardEl.classList.toggle('visually-hidden');
+
+    console.log('on btn stop click');
   }
 }
