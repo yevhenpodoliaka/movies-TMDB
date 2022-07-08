@@ -1,4 +1,4 @@
-import renderSearchList from '../renreSearchList';
+import renderSearchList from '../rendreSearchList';
 import ApiService from '../utils/api-servise';
 const searchApi = new ApiService();
 export { searchApi };

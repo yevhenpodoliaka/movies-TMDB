@@ -15,8 +15,6 @@ function appInit() {
   const galleryList = document
     .querySelector('.gallery')
     .addEventListener('click', onCardClick);
-  console.log(document.body.clientHeight);
-  console.log(window.innerHeight);
   const searchFormEl = document
     .querySelector('.form')
     .addEventListener('submit', onFormSubmit);

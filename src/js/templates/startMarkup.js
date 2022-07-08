@@ -16,9 +16,10 @@ export default function startMarkup() {
   <ul class="gallery"></ul>
   <ul class="library visually-hidden"></ul>
 
-  <div class="gallery__option">
-    <div class="pagination"></div>
-  </div>
+  <div class="gallery__option pagination"></div>
+  <div class="search-list__option pagination"></div>
+  <div class="pagination"></div>
+ 
 </main>
 <footer>
   <span>© 2022 | All Rights Reserved |</span>
