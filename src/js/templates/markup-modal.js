@@ -66,3 +66,5 @@ function createModalMarkup({
   </div>`;
 }
 export default createModalMarkup;
+
+// &origin=http://localhost:1234

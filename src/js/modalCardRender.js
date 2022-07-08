@@ -8,16 +8,17 @@ const appService = new ApiService();
 export default async function renderModalCard(movieId) {
   let backdropEl = document.querySelector('.backdrop');
   backdropEl.setAttribute('id', movieId);
-  try {
-    const data = await appService.fetchMovieDetails(movieId);
-    const markup = await createModalMarkup(data);
-    await uppendModalMarkap(markup);
-    openModal();
-  } catch (error) {
-    alert('error');
-    console.log(error);
-    return;
-  }
+  // try {
+  const data = await appService.fetchMovieDetails(movieId);
+  console.log(data);
+  const markup = await createModalMarkup(data);
+
+  await uppendModalMarkap(markup);
+  openModal();
+  // } catch (error) {
+  //   console.log(error);
+  //   return;
+  // }
 
   const addToQueue = document.querySelector('.btn-add-queue');
   const addWached = document.querySelector('.btn-add-wached');
