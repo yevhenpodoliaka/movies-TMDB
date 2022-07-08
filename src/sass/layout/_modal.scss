@@ -63,21 +63,12 @@ position: relative;
 }
 
 .modal__description-wrap {
-
   display: flex;
   flex-direction: column;
   flex-grow: 1;
   @include tablet {
   width: 60%;
     }
-  
-    // @include desktop {
-    //   width: 65%;
-    // }
-
-  
-
- 
 }
 
 .modal__title {
@@ -195,13 +186,9 @@ position: relative;
     width: 100%;
     height: 60%
   }
-;
-
-
-
-
 }
 .modal__btn-play {
+  text-transform: uppercase;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -209,10 +196,27 @@ position: relative;
   width: 68px;
   height: 48px;
   border: none;
+  border-radius: 5px;
   background-color: #ff6b01;
-  color:white;
+  color: white;
   transform: translate(-50%, -50%);
   cursor: pointer;
+}
+
+.modal__btn-close-trailer {
+  text-transform: uppercase;
+  position: absolute;
+  border: transparent;
+  background-color: transparent;
+  width: 30px;
+  height: 30px;
+  top: 8px;
+  right: 8;
+  font-weight: 700;
+
+  &:hover {
+    fill: var(--activ-btn-color);
+  }
 }
 
 

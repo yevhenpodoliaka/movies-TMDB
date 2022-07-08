@@ -14,7 +14,7 @@ export default class ApiService {
   }
 
   async fetchTrending() {
-    const url = `${BASE_URL}/trending/all/day?api_key=${KEY}&page=${this.page}`;
+    const url = `${BASE_URL}/trending/movie/day?api_key=${KEY}&page=${this.page}`;
     const response = await fetch(url);
     const data = response.json();
     return data;
