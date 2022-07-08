@@ -4,7 +4,6 @@ import ApiService from './utils/api-servise';
 import onCardClick from './handler/modalCardHandler';
 import onFormSubmit from './handler/searchFormHandler';
 import { onBtnHomeClick } from './handler/headerHandler';
-
 const api = new ApiService();
 
 const containerEl = document.querySelector('.container');
