@@ -3,10 +3,6 @@ import renderGallery from '../renderGallery';
 import initPagination from '../utils/initPanigation';
 export default function galleryHandlers() {
   const galleryOptionsEl = document.querySelector('.gallery__option');
-  const prevBtn = document.querySelector('.prev-page');
-  const nextBtn = document.querySelector('.next-page');
-  const paginationLastPage = document.querySelector('.last-page');
-
   galleryOptionsEl.addEventListener('click', onPaginationBtnClick);
   galleryOptionsEl.addEventListener('click', onNextPageClick);
   galleryOptionsEl.addEventListener('click', onPrevPageClick);

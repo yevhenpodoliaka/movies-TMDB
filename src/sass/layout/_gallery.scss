@@ -1,37 +1,27 @@
 @import '~node_modules/modern-normalize/modern-normalize.css';
-.gallery{
-  margin: 0 auto;
-    @include tablet {
-            display: grid;
-        grid-template-columns: repeat(3, 240px);
-            gap: 10px;
-        }
-    
-        @include desktop {
-    grid-template-columns: repeat(4, 300px);
-        gap: 15px;
-        }
-   
+.gallery {
+display: flex;
+flex-wrap: wrap;
+gap :20px;
+padding: 15px;
 }
-.gallery__item{
-    margin-bottom: 12px;
-        background-color: white;
-        color: black;
-        padding: 10px;
-        border-radius: 4px;
-        cursor: pointer;
-        @include tablet{
-            margin: 0;
-        }
+.gallery__item {
+width:calc((100% - 20px) / 2);
+  background-color: white;
+  color: black;
+  padding: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+@include desktop{
+    width: calc((100% - 40px) / 3);
+}
 }
 .info-wrap {
-    pointer-events: none;
+  pointer-events: none;
 }
 
-.libary__options{
-    display: flex;
-     align-items: center;
-    justify-content: center;
-  
+.libary__options {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-

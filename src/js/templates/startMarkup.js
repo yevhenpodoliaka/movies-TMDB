@@ -19,10 +19,9 @@ export default function startMarkup() {
    <ul class="library__queue "></ul> 
    <ul class="library__watched"></ul>
   </div>
-  <div class="pagination">
   <div class="gallery__option pagination"></div>
   <div class="search-list__option pagination"></div>
-</div>
+
  
 </main>
 <footer>

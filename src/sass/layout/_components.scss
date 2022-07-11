@@ -17,7 +17,6 @@ button {
   margin-left: auto;
   margin-right: auto;
   background-color: #f1f1f1;
-  padding: 15px;
 
   @include mobile {
     width: 320px;
@@ -28,6 +27,6 @@ button {
   }
 
   @include desktop {
-    width: 1280px;
+    width: 1200px;
   }
 }

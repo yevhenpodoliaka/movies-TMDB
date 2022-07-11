@@ -3,9 +3,6 @@ import renderSearchList from '../rendreSearchList';
 import initPagination from '../utils/initPanigation';
 export default function searchListHandlers() {
   const searchlistOptions = document.querySelector('.search-list__option');
-  const prevBtn = document.querySelector('.prev-page');
-  const nextBtn = document.querySelector('.next-page');
-  const paginationLastPage = document.querySelector('.last-page');
 
   searchlistOptions.addEventListener('click', onPaginationBtnClick);
   searchlistOptions.addEventListener('click', onNextPageClick);

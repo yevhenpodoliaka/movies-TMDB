@@ -1,10 +1,8 @@
 import ApiService from './utils/api-servise';
 import createMarkupList from './templates/markup-list';
-import renderPagination from './render-pagination';
 import initPagination from './utils/initPanigation';
 import markupPagination from './templates/markup-pagination';
 import galleryHandlers from './handler/galleryHandlers';
-import paginationHandlers from './handler/paginationHandlers';
 export { apiService };
 const apiService = new ApiService();
 
