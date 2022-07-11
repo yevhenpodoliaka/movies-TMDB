@@ -6,35 +6,29 @@ import { localStorageApi } from './utils/localStorageApi';
 const appService = new ApiService();
 
 export default async function renderModalCard(movieId) {
-  let backdropEl = document.querySelector('.backdrop');
+  const backdropEl = document.querySelector('.backdrop');
   backdropEl.setAttribute('id', movieId);
-  // try {
-  const data = await appService.fetchMovieDetails(movieId);
-  console.log(data);
-  const markup = await createModalMarkup(data);
-
-  await uppendModalMarkap(markup);
-  openModal();
-  // } catch (error) {
-  //   console.log(error);
-  //   return;
-  // }
-
+  try {
+    const data = await appService.fetchMovieDetails(movieId);
+    const markup = await createModalMarkup(data);
+    await uppendModalMarkap(markup);
+  } catch (error) {
+    console.log(error);
+  }
   const addToQueue = document.querySelector('.btn-add-queue');
   const addWached = document.querySelector('.btn-add-watched');
   if (localStorageApi.isMovieInQueueList(movieId)) {
-    addToQueue.textContent = 'delete to queue';
+    addToQueue.textContent = 'delete from queue';
     addToQueue.classList.toggle('isActive');
-    addWached.disabled = true;
   }
   if (localStorageApi.isMovieInWatchedList(movieId)) {
-    addWached.textContent = 'delete to Watched';
+    addWached.textContent = 'delete from watched';
     addWached.classList.toggle('isActive');
-    addToQueue.disabled = true;
   }
+  openModal();
 }
 
-async function uppendModalMarkap(markup) {
-  let backdropEl = document.querySelector('.backdrop');
+function uppendModalMarkap(markup) {
+  const backdropEl = document.querySelector('.backdrop');
   backdropEl.innerHTML = markup;
 }

@@ -28,7 +28,7 @@ export default class ApiService {
   }
 
   async fetchMovieDetails(movieId) {
-    const url = `${BASE_URL}/movie/${movieId}?api_key=${KEY}&language=en-US&append_to_response=videos`;
+    const url = `${BASE_URL}/movie/${movieId}?api_key=${KEY}&language=en-US`;
     const response = await fetch(url);
     const data = await response.json();
     return data;

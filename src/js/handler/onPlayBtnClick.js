@@ -1,3 +1,9 @@
+import traillerMarkup from '../templates/markup-trailer';
+import ApiService from '../utils/api-servise';
+export { onBtnPlayClick };
+
+const api = new ApiService();
+
 async function onBtnPlayClick(e) {
   const backdropEl = document.querySelector('.backdrop');
   const modalEl = document.querySelector('.modal');
@@ -5,7 +11,6 @@ async function onBtnPlayClick(e) {
   if (e.target.classList.contains('modal__btn-play')) {
     const filmId = e.currentTarget.getAttribute('id');
     try {
-      spiner.on();
       const key = await api.searchTrailerById(filmId);
       const markup = await traillerMarkup(key);
       modalCardEl.classList.add('is-hidden');
@@ -13,10 +18,8 @@ async function onBtnPlayClick(e) {
       await modalEl.insertAdjacentHTML('afterbegin', markup);
       backdropEl.addEventListener('click', onBtnCloseTrailer);
     } catch (error) {
-      swal('sorry, there are no trailers for this movie(');
+      alert('sorry, there are no trailers for this movie(');
       console.log(error);
-    } finally {
-      spiner.off();
     }
   }
 }

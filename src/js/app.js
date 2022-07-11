@@ -1,7 +1,7 @@
 import startMarkup from './templates/startMarkup';
 import renderGallery from './renderGallery';
 import ApiService from './utils/api-servise';
-import onCardClick from './handler/modalCardHandler';
+import onCardClick from './handler/galleryCardHandler';
 import onFormSubmit from './handler/searchFormHandler';
 import { onBtnHomeClick, onBtnLibraryClick } from './handler/headerHandler';
 const api = new ApiService();

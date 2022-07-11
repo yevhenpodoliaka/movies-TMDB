@@ -1,5 +1,5 @@
 export { openModal };
-import { onBtnPlayClick } from './player';
+import { onBtnPlayClick } from './onPlayBtnClick';
 import {
   onBtnAddToQueueClick,
   onBtnAddWachedClick,
@@ -7,7 +7,7 @@ import {
 // // знімає is.hidden з refs.backdrop та додає слухачів
 
 function openModal() {
-  let backdropEl = document.querySelector('.backdrop');
+  const backdropEl = document.querySelector('.backdrop');
   backdropEl.classList.remove('visually-hidden');
   document.addEventListener('keydown', onCloseEsc);
   backdropEl.addEventListener('click', onBtnCloseModalClick);
@@ -17,14 +17,15 @@ function openModal() {
 }
 // //додає is.hidden на refs.backdrop та знімає слухачів
 function closeModal() {
-  let backdropEl = document.querySelector('.backdrop');
+  const backdropEl = document.querySelector('.backdrop');
   backdropEl.classList.add('visually-hidden');
+  const modalEl = document.querySelector('.modal');
+  modalEl.remove();
   document.removeEventListener('keydown', onCloseEsc);
   backdropEl.removeEventListener('click', onBtnCloseModalClick);
   backdropEl.removeEventListener('click', onBtnAddToQueueClick);
   backdropEl.removeEventListener('click', onBtnAddWachedClick);
   backdropEl.removeEventListener('click', onBtnPlayClick);
-  // backdropEl.innerHTML = '';
 }
 
 // // закриття по Esc

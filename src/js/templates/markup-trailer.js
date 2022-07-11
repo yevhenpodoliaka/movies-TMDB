@@ -1,3 +1,4 @@
+import icon from '../../images/sprite.svg';
 export default function trailerMarkup(videoKey) {
   return `<div
   class ="modal__video">

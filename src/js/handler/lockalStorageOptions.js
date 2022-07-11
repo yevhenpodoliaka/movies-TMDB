@@ -6,19 +6,29 @@ function onBtnAddToQueueClick(e) {
     const addToQueue = document.querySelector('.btn-add-queue');
     const addWached = document.querySelector('.btn-add-watched');
     const filmId = e.currentTarget.getAttribute('id');
-    localStorageApi.isMovieInQueueList(filmId)
-      ? localStorageApi.removeMovieFromQueueList(filmId)
-      : localStorageApi.addMovieToQueueList(filmId);
-    addToQueue.classList.toggle('isActive');
-    localStorageApi.isMovieInQueueList(filmId)
-      ? (addToQueue.textContent = 'delete to queue')
-      : (addToQueue.textContent = 'add to queue');
-    console.log(localStorageApi.getQueueList());
-    if (!addToQueue.disabled && !addWached.disabled) {
-      return (addWached.disabled = true);
+    if (
+      !localStorageApi.isMovieInQueueList(filmId) &&
+      !localStorageApi.isMovieInWatchedList(filmId)
+    ) {
+      localStorageApi.addMovieToQueueList(filmId);
+      addToQueue.classList.toggle('isActive');
+      addToQueue.textContent = 'delete from queue';
+      return;
     }
-    if (addWached.disabled) {
-      return (addWached.disabled = false);
+    if (localStorageApi.isMovieInQueueList(filmId)) {
+      localStorageApi.removeMovieFromQueueList(filmId);
+      addToQueue.classList.toggle('isActive');
+      addToQueue.textContent = 'add to queue';
+      return;
+    }
+    if (localStorageApi.isMovieInWatchedList(filmId)) {
+      localStorageApi.removeMovieFromWatchedList(filmId);
+      addWached.classList.toggle('isActive');
+      addWached.textContent = 'add to watched';
+      localStorageApi.addMovieToQueueList(filmId);
+      addToQueue.classList.toggle('isActive');
+      addToQueue.textContent = 'delete from queue';
+      return;
     }
   }
 }
@@ -27,19 +37,29 @@ function onBtnAddWachedClick(e) {
     const addWached = document.querySelector('.btn-add-watched');
     const addToQueue = document.querySelector('.btn-add-queue');
     const filmId = e.currentTarget.getAttribute('id');
-    localStorageApi.isMovieInWatchedList(filmId)
-      ? localStorageApi.removeMovieFromWatchedList(filmId)
-      : localStorageApi.addMovieToWatchedList(filmId);
-    addWached.classList.toggle('isActive');
-    localStorageApi.isMovieInWatchedList(filmId)
-      ? (addWached.textContent = 'delete to watched')
-      : (addWached.textContent = 'add to watched');
-    console.log(localStorageApi.getWatchedList());
-    if (!addToQueue.disabled && !addWached.disabled) {
-      return (addToQueue.disabled = true);
+    if (
+      !localStorageApi.isMovieInWatchedList(filmId) &&
+      !localStorageApi.isMovieInQueueList(filmId)
+    ) {
+      localStorageApi.addMovieToWatchedList(filmId);
+      addWached.classList.toggle('isActive');
+      addWached.textContent = 'delete from watched';
+      return;
     }
-    if (addToQueue.disabled) {
-      return (addToQueue.disabled = false);
+    if (localStorageApi.isMovieInWatchedList(filmId)) {
+      localStorageApi.removeMovieFromWatchedList(filmId);
+      addWached.classList.toggle('isActive');
+      addWached.textContent = 'add to watched';
+      return;
+    }
+    if (localStorageApi.isMovieInQueueList(filmId)) {
+      localStorageApi.removeMovieFromQueueList(filmId);
+      addToQueue.classList.toggle('isActive');
+      addToQueue.textContent = 'add to queue';
+      localStorageApi.addMovieToWatchedList(filmId);
+      addWached.classList.toggle('isActive');
+      addWached.textContent = 'delete from watched';
+      return;
     }
   }
 }
