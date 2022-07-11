@@ -31,9 +31,12 @@ export default class ApiService {
     const url = `${BASE_URL}/movie/${movieId}?api_key=${KEY}&language=en-US&append_to_response=videos`;
     const response = await fetch(url);
     const data = await response.json();
-    console.log(data.videos.results[0].key);
-    console.log(data);
     return data;
+  }
+  async fetchMoviesListById(arr) {
+    const fetchArr = await arr.map(el => this.fetchMovieDetails(el));
+    const moviesArr = await Promise.all(fetchArr);
+    return moviesArr;
   }
 
   incrementPage() {

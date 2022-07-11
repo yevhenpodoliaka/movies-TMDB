@@ -3,7 +3,7 @@ import renderGallery from './renderGallery';
 import ApiService from './utils/api-servise';
 import onCardClick from './handler/modalCardHandler';
 import onFormSubmit from './handler/searchFormHandler';
-import { onBtnHomeClick } from './handler/headerHandler';
+import { onBtnHomeClick, onBtnLibraryClick } from './handler/headerHandler';
 const api = new ApiService();
 
 const containerEl = document.querySelector('.container');
@@ -21,5 +21,7 @@ function appInit() {
   const btnHomeEl = document
     .querySelector('.header__btn-home')
     .addEventListener('click', onBtnHomeClick);
-  // const btnLibraryEl = document.querySelector('.header__btn-library',onBtnLibraryClick);
+  const btnLibraryEl = document
+    .querySelector('.header__btn-library')
+    .addEventListener('click', onBtnLibraryClick);
 }

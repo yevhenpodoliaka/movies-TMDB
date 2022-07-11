@@ -14,11 +14,15 @@ export default function startMarkup() {
 </header>
 <main>
   <ul class="gallery"></ul>
-  <ul class="library visually-hidden"></ul>
 
+  <div class="library visually-hidden">
+   <ul class="library__queue "></ul> 
+   <ul class="library__watched"></ul>
+  </div>
+  <div class="pagination">
   <div class="gallery__option pagination"></div>
   <div class="search-list__option pagination"></div>
-  <div class="pagination"></div>
+</div>
  
 </main>
 <footer>
