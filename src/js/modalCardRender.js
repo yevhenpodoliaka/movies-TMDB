@@ -21,14 +21,14 @@ export default async function renderModalCard(movieId) {
   // }
 
   const addToQueue = document.querySelector('.btn-add-queue');
-  const addWached = document.querySelector('.btn-add-wached');
+  const addWached = document.querySelector('.btn-add-watched');
   if (localStorageApi.isMovieInQueueList(movieId)) {
     addToQueue.textContent = 'delete to queue';
     addToQueue.classList.toggle('isActive');
     addWached.disabled = true;
   }
   if (localStorageApi.isMovieInWatchedList(movieId)) {
-    addWached.textContent = 'delete to Wached';
+    addWached.textContent = 'delete to Watched';
     addWached.classList.toggle('isActive');
     addToQueue.disabled = true;
   }

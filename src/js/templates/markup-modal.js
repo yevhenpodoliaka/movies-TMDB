@@ -58,7 +58,7 @@ function createModalMarkup({
         ${overview}
       </p>
       <div class="modal__option">
-        <button class="btn-add-wached" data-action="add-wached">add to Watched</button>
+        <button class="btn-add-watched" data-action="add-watched">add to Watched</button>
         <button class="btn-add-queue" data-action="add-queue">add to queue</button>
       </div>
     </div>

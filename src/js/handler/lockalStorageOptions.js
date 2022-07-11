@@ -4,7 +4,7 @@ import { localStorageApi } from '../utils/localStorageApi';
 function onBtnAddToQueueClick(e) {
   if (e.target.dataset.action === 'add-queue') {
     const addToQueue = document.querySelector('.btn-add-queue');
-    const addWached = document.querySelector('.btn-add-wached');
+    const addWached = document.querySelector('.btn-add-watched');
     const filmId = e.currentTarget.getAttribute('id');
     localStorageApi.isMovieInQueueList(filmId)
       ? localStorageApi.removeMovieFromQueueList(filmId)
@@ -23,8 +23,8 @@ function onBtnAddToQueueClick(e) {
   }
 }
 function onBtnAddWachedClick(e) {
-  if (e.target.dataset.action === 'add-wached') {
-    const addWached = document.querySelector('.btn-add-wached');
+  if (e.target.dataset.action === 'add-watched') {
+    const addWached = document.querySelector('.btn-add-watched');
     const addToQueue = document.querySelector('.btn-add-queue');
     const filmId = e.currentTarget.getAttribute('id');
     localStorageApi.isMovieInWatchedList(filmId)
@@ -32,7 +32,7 @@ function onBtnAddWachedClick(e) {
       : localStorageApi.addMovieToWatchedList(filmId);
     addWached.classList.toggle('isActive');
     localStorageApi.isMovieInWatchedList(filmId)
-      ? (addWached.textContent = 'delete to wached')
+      ? (addWached.textContent = 'delete to watched')
       : (addWached.textContent = 'add to watched');
     console.log(localStorageApi.getWatchedList());
     if (!addToQueue.disabled && !addWached.disabled) {
