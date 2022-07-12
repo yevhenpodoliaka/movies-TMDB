@@ -8,7 +8,7 @@ export default function startMarkup() {
     <input class="form__input" type="text" name="input" placeholder="search" />
   </form>
   <div class="library__options visually-hidden">
-    <button class="library__options-watched">Watched</button>
+    <button class="library__options-watched  current-page">Watched</button>
     <button class="library__options-queue">Queue</button>
   </div>
 </header>
