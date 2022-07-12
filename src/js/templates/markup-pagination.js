@@ -1,4 +1,11 @@
 export default function markupPagination(currentPage, totalPage) {
+  if (totalPage <= 7) {
+    const btns = [...new Array(totalPage).keys()].map(item => {
+      return `<button class="pagination__btn">${item + 1}</button>`;
+    });
+
+    return btns;
+  }
   if (currentPage < 4 && totalPage > 7) {
     return `<button class="pagination__btn">1</button>
   <button class="pagination__btn">2</button>
