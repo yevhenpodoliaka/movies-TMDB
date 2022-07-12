@@ -14,6 +14,7 @@ function openModal() {
   backdropEl.addEventListener('click', onBtnAddToQueueClick);
   backdropEl.addEventListener('click', onBtnAddWachedClick);
   backdropEl.addEventListener('click', onBtnPlayClick);
+  document.body.addEventListener('wheel', preventScroll, { passive: false });
 }
 // //додає is.hidden на refs.backdrop та знімає слухачів
 function closeModal() {
@@ -26,6 +27,9 @@ function closeModal() {
   backdropEl.removeEventListener('click', onBtnAddToQueueClick);
   backdropEl.removeEventListener('click', onBtnAddWachedClick);
   backdropEl.removeEventListener('click', onBtnPlayClick);
+  document.body.removeEventListener('wheel', preventScroll, {
+    passive: false,
+  });
 }
 
 // // закриття по Esc
@@ -42,4 +46,9 @@ function onBtnCloseModalClick(e) {
   ) {
     closeModal();
   }
+}
+function preventScroll(e) {
+  e.preventDefault();
+  e.stopPropagation();
+  return false;
 }

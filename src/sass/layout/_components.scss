@@ -4,19 +4,24 @@ button {
     font-size: 12px;
     line-height: 1.33;
     border-radius: 5px;
+    border: none;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     padding: 0;
-    color: black;
+    background-color: #53a1cb;
+    color: white;
+    &:hover{
+        background-color: #f402a2;
+    }
   
 }
 
 .container {
   margin-left: auto;
   margin-right: auto;
-  background-color: #f1f1f1;
+  background-color: #c1a1d2;
 
   @include mobile {
     width: 320px;
