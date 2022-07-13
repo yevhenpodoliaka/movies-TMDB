@@ -25,10 +25,23 @@ export default async function renderModalCard(movieId) {
     addWached.textContent = 'delete from watched';
     addWached.classList.toggle('isActive');
   }
+
+  await fetchByTrailer(movieId);
   openModal();
 }
 
 function uppendModalMarkap(markup) {
   const backdropEl = document.querySelector('.backdrop');
   backdropEl.innerHTML = markup;
+}
+
+async function fetchByTrailer(filmId) {
+  const btnPlay = document.querySelector('.modal__btn-play');
+  try {
+    const key = await appService.searchTrailerById(filmId);
+    btnPlay.setAttribute('id', key);
+    btnPlay.classList.remove('is-hidden');
+  } catch (error) {
+    console.log(error);
+  }
 }
