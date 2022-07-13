@@ -9,26 +9,26 @@ export default class ApiService {
   }
 
   fetchGenres(type) {
-    const url = `${BASE_URL}/genre/${type}/list?api_key=${KEY}&language=en-US`;
+    const url = `${BASE_URL}/genre/${type}/list?api_key=${KEY}&language=uk-UA`;
     return fetch(url).then(res => res.json());
   }
 
   async fetchTrending() {
-    const url = `${BASE_URL}/trending/movie/day?api_key=${KEY}&page=${this.page}`;
+    const url = `${BASE_URL}/trending/movie/day?api_key=${KEY}&language=uk-UA&page=${this.page}`;
     const response = await fetch(url);
     const data = response.json();
     return data;
   }
 
   async fetchSearchMovie() {
-    const url = `${BASE_URL}/search/movie?api_key=${KEY}&language=en-US&query=${this.searchQuery}&page=${this.page}&include_adult=false`;
+    const url = `${BASE_URL}/search/movie?api_key=${KEY}&language=uk-UA&query=${this.searchQuery}&page=${this.page}&include_adult=false`;
     const response = await fetch(url);
     const data = response.json();
     return data;
   }
 
   async fetchMovieDetails(movieId) {
-    const url = `${BASE_URL}/movie/${movieId}?api_key=${KEY}&language=en-US`;
+    const url = `${BASE_URL}/movie/${movieId}?api_key=${KEY}&language=uk-UA`;
     const response = await fetch(url);
     const data = await response.json();
     return data;

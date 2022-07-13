@@ -18,11 +18,11 @@ export default async function renderModalCard(movieId) {
   const addToQueue = document.querySelector('.btn-add-queue');
   const addWached = document.querySelector('.btn-add-watched');
   if (localStorageApi.isMovieInQueueList(movieId)) {
-    addToQueue.textContent = 'delete from queue';
+    addToQueue.textContent = 'видалити з черги';
     addToQueue.classList.toggle('isActive');
   }
   if (localStorageApi.isMovieInWatchedList(movieId)) {
-    addWached.textContent = 'delete from watched';
+    addWached.textContent = 'видалити з переглянутих';
     addWached.classList.toggle('isActive');
   }
 

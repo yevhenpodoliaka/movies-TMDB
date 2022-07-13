@@ -63,8 +63,8 @@ function createModalMarkup({
         ${aboutText}
       </p>
       <div class="modal__option">
-        <button class="btn-add-watched" data-action="add-watched">add to Watched</button>
-        <button class="btn-add-queue" data-action="add-queue">add to queue</button>
+        <button class="btn-add-watched" data-action="add-watched">додати до переглянутих</button>
+        <button class="btn-add-queue" data-action="add-queue">додати до черги</button>
       </div>
     </div>
     </div>

@@ -1,24 +1,19 @@
 export default function startMarkup() {
   return `<header class="header">
   <nav class="header__nav">
-    <button class="header__btn-home" type="button">Home</button>
-    <button class="header__btn-library" type="button">My Library</button>
+    <button class="header__btn-home" type="button">Домашня сторінка</button>
+    <button class="header__btn-library" type="button">Моя бібліотека</button>
   </nav>
   <form class="form">
     <input class="form__input" type="text" name="input" placeholder="search" />
   </form>
   <div class="library__options visually-hidden">
-    <button class="library__options-watched">Watched</button>
-    <button class="library__options-queue">Queue</button>
+    <button class="library__options-watched">Переглянуті</button>
+    <button class="library__options-queue">На майбутнє</button>
   </div>
 </header>
 <main>
   <ul class="gallery"></ul>
-
-  <div class="library visually-hidden">
-   <ul class="library__queue "></ul> 
-   <ul class="library__watched"></ul>
-  </div>
   <div class="gallery__option pagination"></div>
   <div class="search-list__option pagination"></div>
 

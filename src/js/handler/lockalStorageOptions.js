@@ -12,22 +12,22 @@ function onBtnAddToQueueClick(e) {
     ) {
       localStorageApi.addMovieToQueueList(filmId);
       addToQueue.classList.toggle('isActive');
-      addToQueue.textContent = 'delete from queue';
+      addToQueue.textContent = 'видалити з черги';
       return;
     }
     if (localStorageApi.isMovieInQueueList(filmId)) {
       localStorageApi.removeMovieFromQueueList(filmId);
       addToQueue.classList.toggle('isActive');
-      addToQueue.textContent = 'add to queue';
+      addToQueue.textContent = 'додати до черги';
       return;
     }
     if (localStorageApi.isMovieInWatchedList(filmId)) {
       localStorageApi.removeMovieFromWatchedList(filmId);
       addWached.classList.toggle('isActive');
-      addWached.textContent = 'add to watched';
+      addWached.textContent = 'додати до переглянутих';
       localStorageApi.addMovieToQueueList(filmId);
       addToQueue.classList.toggle('isActive');
-      addToQueue.textContent = 'delete from queue';
+      addToQueue.textContent = 'видалити з черги';
       return;
     }
   }
@@ -43,22 +43,22 @@ function onBtnAddWachedClick(e) {
     ) {
       localStorageApi.addMovieToWatchedList(filmId);
       addWached.classList.toggle('isActive');
-      addWached.textContent = 'delete from watched';
+      addWached.textContent = 'видалити з переглянутих';
       return;
     }
     if (localStorageApi.isMovieInWatchedList(filmId)) {
       localStorageApi.removeMovieFromWatchedList(filmId);
       addWached.classList.toggle('isActive');
-      addWached.textContent = 'add to watched';
+      addWached.textContent = 'додати до переглянутих';
       return;
     }
     if (localStorageApi.isMovieInQueueList(filmId)) {
       localStorageApi.removeMovieFromQueueList(filmId);
       addToQueue.classList.toggle('isActive');
-      addToQueue.textContent = 'add to queue';
+      addToQueue.textContent = 'додати до черги';
       localStorageApi.addMovieToWatchedList(filmId);
       addWached.classList.toggle('isActive');
-      addWached.textContent = 'delete from watched';
+      addWached.textContent = 'видалити з переглянутих';
       return;
     }
   }
