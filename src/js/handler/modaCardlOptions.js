@@ -20,8 +20,6 @@ function openModal() {
 function closeModal() {
   const backdropEl = document.querySelector('.backdrop');
   backdropEl.classList.add('visually-hidden');
-  const modalEl = document.querySelector('.modal');
-  modalEl.remove();
   document.removeEventListener('keydown', onCloseEsc);
   backdropEl.removeEventListener('click', onBtnCloseModalClick);
   backdropEl.removeEventListener('click', onBtnAddToQueueClick);
@@ -34,15 +32,23 @@ function closeModal() {
 
 // // закриття по Esc
 function onCloseEsc(e) {
-  if (e.code === 'Escape') {
+  const modalCardEl = document.querySelector('.modal__card');
+  if (e.code === 'Escape' && !modalCardEl.classList.contains('is-hidden')) {
     closeModal();
   }
 }
-// // закриття по кнопкі або по кліку на бєкдроп
+// // закриття по кнопкі або по кліку на бeкдроп
 function onBtnCloseModalClick(e) {
+  const modalCardEl = document.querySelector('.modal__card');
   if (
-    e.target.dataset.action === 'close-modal' ||
-    e.currentTarget === e.target
+    e.target.dataset.action === 'close-modal' &&
+    !modalCardEl.classList.contains('is-hidden')
+  ) {
+    closeModal();
+  }
+  if (
+    e.currentTarget === e.target &&
+    !modalCardEl.classList.contains('is-hidden')
   ) {
     closeModal();
   }
@@ -52,3 +58,4 @@ function preventScroll(e) {
   e.stopPropagation();
   return false;
 }
+// -----------------------------------
