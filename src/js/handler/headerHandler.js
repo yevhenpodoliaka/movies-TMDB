@@ -19,25 +19,34 @@ function onBtnHomeClick() {
 }
 
 function onBtnLibraryClick() {
+  const formEl = document.querySelector('.form');
+  const libraryOptionsEl = document.querySelector('.library__options');
+  const paginationWrap = document.querySelector('.pagination');
+  const btnWatched = document.querySelector('.library__options-watched');
+  const btnQueue = document.querySelector('.library__options-queue');
   if (!localStorageApi.getQueueList() && !localStorageApi.getWatchedList()) {
     alert('add movies from Watched list or Queue list');
     return;
   }
-  const formEl = document.querySelector('.form');
-  formEl.classList.add('visually-hidden');
-  const libraryOptionsEl = document.querySelector('.library__options');
-  libraryOptionsEl.classList.remove('visually-hidden');
-  libraryOptionsEl.addEventListener('click', onWatchedBtnClick);
-  libraryOptionsEl.addEventListener('click', onQueueBtnClick);
-  const paginationWrap = document.querySelector('.pagination');
-  paginationWrap.classList.add('visually-hidden');
   if (localStorageApi.getWatchedList()) {
+    formEl.classList.add('visually-hidden');
+    libraryOptionsEl.classList.remove('visually-hidden');
+    libraryOptionsEl.addEventListener('click', onWatchedBtnClick);
+    libraryOptionsEl.addEventListener('click', onQueueBtnClick);
+    paginationWrap.classList.add('visually-hidden');
     renderlibraryWatched();
+    btnWatched.classList.add('current-page');
     return;
   }
 
   if (localStorageApi.getQueueList()) {
-    localStorageApi.getQueueList();
+    formEl.classList.add('visually-hidden');
+    libraryOptionsEl.classList.remove('visually-hidden');
+    libraryOptionsEl.addEventListener('click', onWatchedBtnClick);
+    libraryOptionsEl.addEventListener('click', onQueueBtnClick);
+    paginationWrap.classList.add('visually-hidden');
+    renderlibraryQueue();
+    btnQueue.classList.add('current-page');
     return;
   }
 }

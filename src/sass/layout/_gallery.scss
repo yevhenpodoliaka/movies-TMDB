@@ -1,25 +1,56 @@
 @import '~node_modules/modern-normalize/modern-normalize.css';
 .gallery {
-display: flex;
-flex-wrap: wrap;
-gap :20px;
-padding: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 15px;
 }
 .gallery__item {
-width:calc((100% - 20px) / 2);
+  width: calc((100% - 20px) / 2);
   background-color: white;
   color: black;
   padding: 10px;
   border-radius: 4px;
   cursor: pointer;
-@include desktop{
+  @include desktop {
     width: calc((100% - 40px) / 3);
-}
+  }
 }
 .info-wrap {
+  position: relative;
   pointer-events: none;
 }
+.card__title {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  color: black;
+  background-color: white;
+  @include tablet {
+      padding: 4px;
+    }
+}
+.card__date {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: black;
+  background-color: white;
+  @include tablet {
+      padding: 4px;
+    }
+}
+.card__rating {
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: black;
+  background-color: white;
+  @include tablet{
+  padding: 4px;
+  }
 
+}
 .libary__options {
   display: flex;
   align-items: center;

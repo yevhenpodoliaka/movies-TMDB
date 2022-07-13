@@ -7,12 +7,13 @@ function createMarkupList(arr) {
       const poster = poster_path
         ? `https://image.tmdb.org/t/p/w500/${poster_path}`
         : `${defaultImg}`;
+      const date = new Date(release_date).getFullYear();
       return `<li class="gallery__item" data-id="${id}">
       <div class="info-wrap">
     <img src= ${poster} alt="" class="poster">
-    <p class="title">${title}</p>
-    <p class="date">Date: ${release_date}</p>
-    <p class="rating">Rating :${vote_average}</p>
+    <p class="card__title">${title}</p>
+    <p class="card__date">${date}</p>
+    <p class="card__rating">${vote_average}</p>
     </div>
 </li>`;
     })
