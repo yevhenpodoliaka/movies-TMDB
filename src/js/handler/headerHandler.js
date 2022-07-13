@@ -1,8 +1,8 @@
 export { onBtnHomeClick, onBtnLibraryClick };
 import renderGallery from '../renderGallery';
-import { renderlibraryWatched } from '../renderLibrary';
+import { renderlibraryWatched, renderlibraryQueue } from '../renderLibrary';
 import { localStorageApi } from '../utils/localStorageApi';
-import { onWatchedBtnClick, onQueUeBtnClick } from './libraryHandlers';
+import { onWatchedBtnClick, onQueueBtnClick } from './libraryHandlers';
 function onBtnHomeClick() {
   const formEl = document.querySelector('.form');
   formEl.classList.remove('visually-hidden');
@@ -20,7 +20,7 @@ function onBtnHomeClick() {
 
 function onBtnLibraryClick() {
   if (!localStorageApi.getQueueList() && !localStorageApi.getWatchedList()) {
-    alert('add movies from Watched list');
+    alert('add movies from Watched list or Queue list');
     return;
   }
   const formEl = document.querySelector('.form');
@@ -28,9 +28,16 @@ function onBtnLibraryClick() {
   const libraryOptionsEl = document.querySelector('.library__options');
   libraryOptionsEl.classList.remove('visually-hidden');
   libraryOptionsEl.addEventListener('click', onWatchedBtnClick);
-  libraryOptionsEl.addEventListener('click', onQueUeBtnClick);
-
+  libraryOptionsEl.addEventListener('click', onQueueBtnClick);
   const paginationWrap = document.querySelector('.pagination');
   paginationWrap.classList.add('visually-hidden');
-  renderlibraryWatched();
+  if (localStorageApi.getWatchedList()) {
+    renderlibraryWatched();
+    return;
+  }
+
+  if (localStorageApi.getQueueList()) {
+    localStorageApi.getQueueList();
+    return;
+  }
 }
